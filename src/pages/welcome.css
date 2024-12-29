@@ -1,0 +1,16 @@
+.home-container {
+    height: 100vh; /* Full viewport height */
+    width: 100vw; /* Full viewport width */
+    display: flex;
+    overflow: hidden;
+    background: linear-gradient(80deg, #173518 40%, transparent 45%), 
+                url('/src/resources/welcome_bg.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.content {
+    padding-top: 45vh;
+    padding-left: 10vw;
+    text-align: center;
+    color: white;
+}
