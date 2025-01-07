@@ -4,17 +4,22 @@ import { useNavigate } from 'react-router-dom';
 
 function WelcomePage() {
     const navigate = useNavigate();
-    const handleClick = () => {
+    const welcomeClick = () => {
         navigate('/home');
-        console.log('Button was clicked!');
     };
 
     return (
-        <div className="home-container">
-            <div className="content">
-                <h1>Welcome to the jungle</h1>
-                <button onClick={handleClick} style={{ padding: '10px 20px', fontSize: '16px' }}>
+        <div className="welcome-page">
+            <div className="welcome-content">
+                <h1>Welcome to Timisoara's Zoo garden!</h1>
+                <p>
+                    We have a lot of animals, including rare ones, that are waiting for your visit. Here on this site you can view each one of them along with every information about us. Come visit us today!
+                </p>
+                <button className="welcome-btn" onClick={welcomeClick}>
                     Welcome
+                </button>
+                <button className="sign-btn">
+                    continue as admin
                 </button>
             </div>
         </div>

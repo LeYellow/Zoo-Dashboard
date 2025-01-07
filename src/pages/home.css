@@ -1,0 +1,45 @@
+.home-page {
+    height: 100vh;
+    width: 100vw;
+    overflow: scroll;
+    background-color: #173518;
+}
+
+.banner {
+    height: 170px;
+    width: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5vh;
+}
+
+.home-content {
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-bottom: 5vh;
+    border: solid black 4px;
+    border-radius: 10px;
+    background-color: rgba(255, 250, 205, 0.8);
+}
+
+.animal-list {
+    height: 400px;
+    width: 60vw;
+    background-color: white;
+    margin-bottom: 30px;
+}
+
+.animal-desc {
+    height: 400px;
+    width: 60vw;
+    background-color: white;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
