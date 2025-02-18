@@ -1,0 +1,36 @@
+.map {
+    border-left: 2px solid gray;
+    border-bottom: 2px solid gray;
+    border-radius: 20px;
+    margin-left: 20px;
+    background-color: white;
+    width: 270px;
+    height: 160px;
+    text-align: center;
+}
+
+.map img {
+    margin-top: 20px;
+    margin-bottom: 0px;
+    height: 110px;
+    width: auto;
+}
+
+.map p {
+    position: relative;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    margin-right: 15px;
+    margin-left: auto;
+    text-align: right;
+    font-weight: 500;
+    font-size: 15px;
+    cursor: pointer;
+    color: rgb(71, 129, 236);
+    transition: 0.3s;
+    width: fit-content;
+}
+
+.map p:hover {
+    color: blue;
+}

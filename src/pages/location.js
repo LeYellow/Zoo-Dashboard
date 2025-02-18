@@ -1,14 +1,14 @@
 import React from 'react';
-import './about.css';
+import "./location.css";
 import Navbar from '../components/Navbar';
 
-function AboutPage() {
-
+function MapPage() {
+    
     return (
-        <div className="about-page">
+        <div className="location-page">
             <Navbar/>
-            <div className="about-banner"/>
-            <div className="about-content">
+            <div className="location-banner"/>
+            <div className="location-content">
                 <p>Hllow</p>
                 <p>Hllow</p>
                 <p>Hllow</p>
@@ -44,4 +44,4 @@ function AboutPage() {
     );
 }
 
-export default AboutPage;
+export default MapPage;

@@ -20,3 +20,17 @@
     padding: '10px 20px';
     font-size: 16px;
 }
+
+.login-btn {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    border: none;
+    background-color: #173518;
+    color: #0f220f;
+}
+
+.login-btn:hover {
+    background-color: white;
+    cursor: pointer;
+}

@@ -1,19 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
-
-.home-page {
+.animals-page {
     height: 100vh;
     width: 100vw;
     overflow: scroll;
     background-color: #fffcde;
 }
 
-.home-banner {
+.animals-banner {
     width: 100vw;
     height: 800px;
     background: linear-gradient(0deg, #fffcde 5%, transparent 50%), url('/src/resources/banner2.jpg') no-repeat top center;
 }
 
-.home-content {
+.animals-content {
     margin-inline: 15vw;
     margin-top: -300px;
     margin-bottom: 5vh;
@@ -24,13 +22,15 @@
     border-top-right-radius: 50px;
 }
 
-.infoCards {
-    padding-top: 30px;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
+.animal-list {
+    height: 400px;
+    max-width: 60vw;
+    background-color: white;
+    margin-bottom: 30px;
 }
 
-::-webkit-scrollbar {
-    display: none;
+.animal-desc {
+    height: 400px;
+    max-width: 60vw;
+    background-color: white;
 }
