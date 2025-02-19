@@ -19,15 +19,17 @@ function Navbar() {
         <div className="navbar-body">
             <img src={logo} alt="zoo" onClick={homeClick}/>
             <p>Timisoara Zoological Garden</p>
-            <button className="home-btn" onClick={homeClick}>
-                Home
-            </button>
-            <button className="animals-btn" onClick={animalsClick}>
-                Our Animals
-            </button>
-            <button className="about-btn" onClick={aboutClick}>
-                About Us
-            </button>
+            <div className="nav-buttons">
+                <button className="home-btn" onClick={homeClick}>
+                    Home
+                </button>
+                <button className="animals-btn" onClick={animalsClick}>
+                    Our Animals
+                </button>
+                <button className="about-btn" onClick={aboutClick}>
+                    About Us
+                </button>
+            </div>
         </div>
     );
 }

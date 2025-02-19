@@ -6,6 +6,7 @@ import HomePage from './pages/home';
 import AnimalsPage from './pages/animals';
 import AboutPage from './pages/about';
 import MapPage from './pages/location';
+import NewsPage from './pages/news';
 
 function App() {
   const [view, setView] = useState('HOME');
@@ -18,6 +19,7 @@ function App() {
         <Route path="/animals" element={<AnimalsPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/map" element={<MapPage />} />
+        <Route path="/news" element={<NewsPage />} />
       </Routes>
     </Router>
   );

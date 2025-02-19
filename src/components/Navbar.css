@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 
 .navbar-body {
-    padding-top: 1px;
+    padding-top: 0px;
     width: 100%;
     align-items: center;
     display: flex;
     position: fixed;
+    background: linear-gradient(180deg, black 1%, transparent 100%)
 }
 
 .navbar-body img{
@@ -19,6 +20,10 @@
     border-bottom-right-radius: 50px;
 }
 
+.navbar-body img:hover {
+    cursor: pointer;
+}
+
 .navbar-body p{
     flex: 1;
     margin-left: 10px;
@@ -27,7 +32,13 @@
     color: white;
 }
 
-.navbar-body button {
+@media (max-width: 1110px) {
+    .navbar-body p {
+        display: none;
+    }
+}
+
+.nav-buttons button {
     height: 50px;
     padding-inline: 20px;
     font-family: 'Varela Round';
@@ -39,7 +50,14 @@
     transition-duration: 0.3s;
 }
 
-.navbar-body button:hover {
+@media (max-width: 1110px) {
+    .nav-buttons {
+        transition: 0.2ms;
+        margin-left: auto;
+    }
+}
+
+.nav-buttons button:hover {
     background-color: #FFD700;
     border-color: #FFD700;
     color: black;

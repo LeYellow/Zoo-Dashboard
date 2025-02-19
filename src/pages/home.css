@@ -17,19 +17,107 @@
     margin-inline: 15vw;
     margin-top: -300px;
     margin-bottom: 5vh;
-    padding-inline: 2vw;
+    padding-inline: 30px;
+    padding-top: 30px;
     padding-bottom: 5vh;
     background-color: #fffcde;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
 }
 
+@media (max-width: 1200px) {
+    .home-content {
+        transition: 0.2s;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        margin-inline: 0px;
+    }
+}
+
+
+.home-welcome {
+    margin-block: 100px;
+}
+
+.home-welcome h1 {
+    margin-block: 0px;
+    text-align: center;
+    font-size: 50px;
+    font-family: 'Varela Round';
+}
+
+.home-welcome p {
+    margin-block: 0px;
+    font-size: 20px;
+    text-align: center;
+    margin-inline: 30px;
+}
+
+
 .infoCards {
-    padding-top: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    width: 100%;
+    margin-inline: auto;
+}
+
+@media (max-width: 800px) {
+    .infoCards {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+.newsCards-header {
+    margin-top: 30px;
+    margin-bottom: 30px;
     display: flex;
     flex-direction: row;
     width: 100%;
 }
+
+.newsCards-header h2 {
+    align-self: flex-start;
+    margin: 0%;
+    margin-right: auto;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.newsCards-header button {
+    align-self: flex-end;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-block: 6px;
+    padding-inline: 10px;
+    border-radius: 5px;
+    border: none;
+    transition: 0.3s;
+}
+
+.newsCards-header button:hover {
+    cursor: pointer;
+    background-color: gray;
+    color: white;
+}
+
+.newsCards-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 30px;
+}
+
+@media (max-width: 700px) {
+    .newsCards-content {
+        grid-template-columns: 100%;
+        grid-template-areas: "a" "b" "c";
+        row-gap: 30px;
+        justify-self: center;
+    }
+}
+
 
 ::-webkit-scrollbar {
     display: none;
