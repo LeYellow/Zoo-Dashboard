@@ -6,6 +6,7 @@ import TicketPricesCard from '../components/TicketPricesCard.js';
 import MapCard from '../components/MapCard.js';
 import Navbar from '../components/Navbar.js';
 import NewsCard from '../components/NewsCard.js';
+import Footer from '../components/Footer.js';
 
 function HomePage() {
     const navigate = useNavigate();
@@ -39,6 +40,7 @@ function HomePage() {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </div>
     );
 }

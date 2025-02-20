@@ -1,7 +1,8 @@
 import React from "react";
 import "./news.css";
-import Navbar from "../components/Navbar";
 import NewsCard from "../components/NewsCard";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 function NewsPage() {
 
@@ -18,6 +19,7 @@ function NewsPage() {
                 <NewsCard title="The site is now live!" subtitle="This is a string for testing subtitle" date="19/02/2025"/>
                 <NewsCard title="The site is now live!" subtitle="This is a string for testing subtitle" date="19/02/2025"/>
             </div>
+            <Footer/>
         </div>
     );
 

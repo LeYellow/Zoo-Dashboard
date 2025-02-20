@@ -1,0 +1,101 @@
+.footer-body {
+    height: 200px;
+    width: 70%;
+    padding-inline: 15%;
+    padding-block: 30px;
+    background-color: green;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    transition: 0.4s;
+}
+
+@media (max-width: 1200px) {
+    .footer-body {
+        padding-inline: 0px;
+        width: 100%;
+    }
+}
+
+.footer-body div {
+    padding-block: 20px;
+}
+
+.footer-body h1 {
+    margin: 0px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.footer-body h6 {
+    margin-block: 2px;
+    margin-left: 20px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.footer-body h6:hover {
+    cursor: pointer;
+    color: grey;
+}
+
+.col1 {
+    text-align: left;
+    display: inline;
+    padding-left: 30px;
+}
+
+.col1 svg{
+    margin-bottom: 0px;
+    margin-inline: 10px;
+    height: 30px;
+    width: 30px;
+    color: rgb(189, 189, 189);
+    transition: 0.2s;
+}
+
+.col1 svg:hover {
+    cursor: pointer;
+    color: grey;
+}
+
+.col1 img {
+    margin-top: 0px;
+    height: 70px;
+    width: auto;
+    border-radius: 35px;
+}
+
+.col2, .col4{
+    border-left: 1px solid grey;
+    border-right: 1px solid grey;
+}
+
+
+.col3 h5 {
+    margin-block: 2px;
+    margin-left: 20px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.col3 a:link, a:visited{
+    margin-block: 2px;
+    margin-left: 20px;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.col3 svg {
+    height: 15px;
+    width: auto;
+}
+
+.col5 img {
+    margin-left: 20px;
+    height: 60px;
+    width: auto;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import "./location.css";
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 function MapPage() {
     
@@ -40,6 +41,7 @@ function MapPage() {
                 <p>Hllow</p>
                 <p>Hllow</p>
             </div>
+            <Footer/>
         </div>
     );
 }

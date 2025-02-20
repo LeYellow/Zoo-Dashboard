@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import "./animals.css";
-import Navbar from '../components/Navbar';
 import axios from 'axios';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 function AnimalsPage() {
     const [selectedRow, setSelectedRow] = useState(null);
@@ -121,6 +122,7 @@ function AnimalsPage() {
                     )}  
                 </div>
             </div>
+            <Footer/>
         </div>
     );
 }

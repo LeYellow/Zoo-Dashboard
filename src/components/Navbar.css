@@ -6,7 +6,8 @@
     align-items: center;
     display: flex;
     position: fixed;
-    background: linear-gradient(180deg, black 1%, transparent 100%)
+    background: linear-gradient(180deg, black 1%, transparent 100%);
+    z-index: 9;
 }
 
 .navbar-body img{

@@ -1,6 +1,7 @@
 import React from 'react';
 import './about.css';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 function AboutPage() {
 
@@ -40,6 +41,7 @@ function AboutPage() {
                 <p>Hllow</p>
                 <p>Hllow</p>
             </div>
+            <Footer/>
         </div>
     );
 }

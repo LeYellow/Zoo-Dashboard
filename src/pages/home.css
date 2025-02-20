@@ -27,7 +27,7 @@
 
 @media (max-width: 1200px) {
     .home-content {
-        transition: 0.2s;
+        transition: 0.4s;
         border-top-left-radius: 0px;
         border-top-right-radius: 0px;
         margin-inline: 0px;
@@ -82,8 +82,9 @@
     align-self: flex-start;
     margin: 0%;
     margin-right: auto;
-    font-size: 25px;
+    font-size: 30px;
     font-weight: 700;
+    font-family: 'Varela Round';
 }
 
 .newsCards-header button {
