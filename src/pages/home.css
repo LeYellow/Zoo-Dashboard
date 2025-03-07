@@ -18,7 +18,6 @@
     margin-top: -300px;
     margin-bottom: 5vh;
     padding-inline: 30px;
-    padding-top: 30px;
     padding-bottom: 5vh;
     background-color: #fffcde;
     border-top-left-radius: 50px;
@@ -55,6 +54,7 @@
 
 
 .infoCards {
+    padding-top: 30px;
     display: flex;
     justify-content: space-evenly;
     flex-direction: row;

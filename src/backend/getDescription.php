@@ -7,7 +7,7 @@ $sql = "SELECT Name, Characteristics, Food, case
       WHEN Status=1 then 'Sick'
       WHEN Status=0 then 'Healty'
       ELSE NULL
-    end as Status, About FROM Descriptions WHERE ID = ?";
+    end as Status, About, Age FROM Descriptions WHERE ID = ?";
 $params = array($ID);
 $stmt = sqlsrv_query($conn, $sql, $params);
 
