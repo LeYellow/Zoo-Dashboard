@@ -1,18 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
-
-.news-page {
-    height: 100vh;
-    width: 100vw;
-    overflow: scroll;
-    background-color: #fffcde;
-}
-
 .news-banner {
-    width: 100vw;
-    height: 800px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     background: linear-gradient(0deg, #fffcde 5%, transparent 50%), url('/src/resources/banner1.jpg') no-repeat top center;
 }
 
@@ -22,28 +8,10 @@
     font-family: 'Varela Round';
 }
 
-.news-content {
-    margin-inline: 15vw;
-    margin-top: -300px;
-    margin-bottom: 5vh;
-    padding-inline: 30px;
+.news-grid {
     padding-top: 30px;
-    padding-bottom: 5vh;
-    background-color: #fffcde;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
-    border: 1px black;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     row-gap: 30px;
     column-gap: 30px;
-}
-
-@media only screen and (max-width: 1200px) {
-    .news-content {
-        transition: 0.2s;
-        border-top-left-radius: 0px;
-        border-top-right-radius: 0px;
-        margin-inline: 0px;
-    }
 }

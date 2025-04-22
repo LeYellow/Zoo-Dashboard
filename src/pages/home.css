@@ -1,41 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
-
-.home-page {
-    height: 100vh;
-    width: 100vw;
-    overflow: scroll;
-    background-color: #fffcde;
-}
-
 .home-banner {
-    width: 100vw;
-    height: 800px;
     background: linear-gradient(0deg, #fffcde 5%, transparent 50%), url('/src/resources/banner2.jpg') no-repeat top center;
 }
 
-.home-content {
-    margin-inline: 15vw;
-    margin-top: -300px;
-    margin-bottom: 5vh;
-    padding-inline: 30px;
-    padding-bottom: 5vh;
-    background-color: #fffcde;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
-}
-
-@media (max-width: 1200px) {
-    .home-content {
-        transition: 0.4s;
-        border-top-left-radius: 0px;
-        border-top-right-radius: 0px;
-        margin-inline: 0px;
-    }
-}
-
-
 .home-welcome {
-    margin-block: 100px;
+    margin-block: 50px;
 }
 
 .home-welcome h1 {
@@ -117,9 +85,4 @@
         row-gap: 30px;
         justify-self: center;
     }
-}
-
-
-::-webkit-scrollbar {
-    display: none;
 }

@@ -12,7 +12,7 @@ function MapCard() {
     return (
         <div className="map">
             <img src={map} alt="map"/>
-            <p onClick={mapClick}>Find Us →</p>
+            <p onClick={mapClick}>Zoo Map →</p>
         </div>
     );
 }

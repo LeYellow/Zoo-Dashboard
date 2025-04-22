@@ -1,23 +1,66 @@
-.about-page {
-    height: 100vh;
-    width: 100vw;
-    overflow: scroll;
-    background-color: #fffcde;
-}
-
 .about-banner {
-    width: 100vw;
-    height: 800px;
     background: linear-gradient(0deg, #fffcde 5%, transparent 50%), url('/src/resources/banner2.jpg') no-repeat top center;
 }
 
-.about-content {
-    margin-inline: 15vw;
-    margin-top: -300px;
-    margin-bottom: 5vh;
-    padding-inline: 30px;
-    padding-bottom: 5vh;
-    background-color: #fffcde;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
+.about-banner h1 {
+    color: white;
+    font-size: 100px;
+    font-family: 'Varela Round';
+}
+
+.text-block {
+    padding-top: 20px;
+    margin-bottom: 100px;
+}
+
+.text-block p{
+    margin-top: 0px;
+}
+
+.timeline {
+    position: relative;
+}
+
+/*vertical line*/
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: black;
+    top: 0px;
+    bottom: 30px;
+    left: 7px;
+}
+
+.timeline-p {
+    position: relative;
+    left: 50px;
+    width: fit-content;
+    margin-bottom: 30px;
+}
+
+/*dots*/
+.timeline-p::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border: 5px solid black;
+    left: -50px;
+    top: 1px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/*arrows*/
+.timeline-p::before {
+    content: " ";
+    position: absolute;
+    width: 5px;
+    top: 5px;
+    left: -30px;
+    border: medium solid black;
+    border-width: 5px 15px 5px 0;
+    border-color: transparent black transparent transparent;
 }

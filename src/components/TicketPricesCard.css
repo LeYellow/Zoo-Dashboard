@@ -38,20 +38,28 @@
     width: fit-content;
 }
 
-
 .prices h2:hover {
     color: blue;
 }
 
-.ticketInfo {
+.ticketMenu {
+    width: 500px;
+    padding-inline: 30px;
+    padding-block: 20px;
+}
+
+.ticketList {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-inline: 30px;
+}
+
+.ticketTier{
+    font-weight: bold;
 }
 
 .dotLine {
     flex-grow: 1;
     border-bottom: 2px dotted black;
-    margin: 0 10px;
+    margin: 0 15px;
 }

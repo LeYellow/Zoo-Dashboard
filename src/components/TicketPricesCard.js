@@ -48,16 +48,21 @@ function TicketPricesCard() {
                 ))}
                 <h2 onClick={handleOpenMenu}>All prices →</h2>
             </div>
-            <Dialog open={open} onClose={handleCloseMenu} className="ticketMenu">
-                <CloseIcon onClick={handleCloseMenu}/>
-                <DialogTitle>Tickets</DialogTitle>
-                {tickets.map((ticket, index) => (
-                    <div key={index} className="ticketInfo">
-                        <span className="ticketTier">{ticket.tier}</span>
-                        <span className="dotLine"></span>
-                        <span className="ticketPrice">{ticket.price} Lei</span>
+
+            <Dialog open={open} onClose={handleCloseMenu}>
+                <div className="ticketMenu">
+                    <div style={{ display: 'flex', justifyContent: 'flex-end'}}>
+                        <CloseIcon onClick={handleCloseMenu} sx={{ cursor: 'pointer'}}/>
                     </div>
-                ))}
+                    <DialogTitle sx={{ textAlign: 'center', paddingBottom: 3, fontSize: 30, fontWeight: 'bold' }}>Prices</DialogTitle>
+                    {tickets.map((ticket, index) => (
+                        <div key={index} className="ticketList">
+                            <span className="ticketTier">{ticket.tier}</span>
+                            <span className="dotLine"></span>
+                            <span className="ticketPrice">{ticket.price} Lei</span>
+                        </div>
+                    ))}
+                </div>
             </Dialog>
         </div>
     );

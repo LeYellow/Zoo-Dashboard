@@ -2,20 +2,22 @@ import React, { useState, useEffect } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { Dialog, DialogContent, DialogActions, Button, TextField, DialogTitle, DialogContentText, MenuItem, Select, InputLabel, FormControl, Tooltip } from '@mui/material';
 import "./animals.css";
+import "./shared.css";
 import axios from 'axios';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import DeleteForeverRoundedIcon from '@mui/icons-material/DeleteForeverRounded';
 import BorderColorRoundedIcon from '@mui/icons-material/BorderColorRounded';
+import namesvg from '../resources/name-badge.svg';
 
 function AnimalsPage() {
     const loggedUser = 1;   //trigger login
     const [error, setError] = useState("");
     const [openMenu, setOpenMenu] = useState(false);
-    const[openDelete, setOpenDelete] = useState(false);
+    const [openDelete, setOpenDelete] = useState(false);
     const [isEditMode, setIsEditMode] = useState(false);
     const [selectedRow, setSelectedRow] = useState(null);
-    const[selectedID, setselectedID] = useState(null);
+    const [selectedID, setselectedID] = useState(null);
     const [notes, setNotes] = useState({
         ID: '',
         Name: '',
@@ -25,8 +27,8 @@ function AnimalsPage() {
         About: '',
         Age: '',
     });
-    const[data, setData] = useState([]);
-    const[formData, setFormData] = useState({
+    const [data, setData] = useState([]);
+    const [formData, setFormData] = useState({
         Name: '',
         Species: '',
         Breed: '',
@@ -40,14 +42,14 @@ function AnimalsPage() {
         Age: '',
     });
     const columnsTicket = [
-        ...(loggedUser ? [{ field: 'ID', headerName: 'ID', width: 20, headerAlign: 'center', headerClassName: 'TableHeader' }] : []),
-        { field: 'Name', headerName: 'Name', width: 80, headerAlign: 'center', headerClassName: 'TableHeader'  },
-        { field: 'Species', headerName: 'Species', width: 80, headerAlign: 'center', headerClassName: 'TableHeader'  },
-        { field: 'Breed', headerName: 'Breed', width: 100, headerAlign: 'center', headerClassName: 'TableHeader'  },
-        { field: 'Enclosure', headerName: 'Enclosure', width: 100, headerAlign: 'center', headerClassName: 'TableHeader'  },
-        ...(loggedUser ? [{ field: 'WasFeed', headerName: 'Has Eat', width: 80, headerAlign: 'center', headerClassName: 'TableHeader'  }] : []),
-        ...(loggedUser ? [{ field: 'Responsible', headerName: 'Responsible', width: 110, headerAlign: 'center', headerClassName: 'TableHeader'  }] : []),
-        ...(loggedUser ? [{ field: 'Functions', headerName: 'Functions', width: 100, headerAlign: 'center', headerClassName: 'TableHeader',
+        ...(loggedUser ? [{ field: 'ID', headerName: 'ID', maxWidth: 20, headerAlign: 'center', headerClassName: 'TableHeader' }] : []),
+        { field: 'Name', headerName: 'Name', minWidth: 80, flex: 1, headerAlign: 'center', headerClassName: 'TableHeader'  },
+        { field: 'Species', headerName: 'Species', minWidth: 80, flex: 1, headerAlign: 'center', headerClassName: 'TableHeader'  },
+        { field: 'Breed', headerName: 'Breed', minWidth: 100, flex: 1, headerAlign: 'center', headerClassName: 'TableHeader'  },
+        { field: 'Enclosure', headerName: 'Enclosure', minWidth: 100, flex: 0.3, headerAlign: 'center', headerClassName: 'TableHeader'  },
+        ...(loggedUser ? [{ field: 'WasFeed', headerName: 'Has Eat', minWidth: 80, flex: 0.3, headerAlign: 'center', headerClassName: 'TableHeader'  }] : []),
+        ...(loggedUser ? [{ field: 'Responsible', headerName: 'Responsible', minWidth: 110, flex: 1, headerAlign: 'center', headerClassName: 'TableHeader'  }] : []),
+        ...(loggedUser ? [{ field: 'Functions', headerName: 'Functions', minWidth: 130, flex: 1, headerAlign: 'center', headerClassName: 'TableHeader',
             renderCell: (params) => (
                 <div>
                     <Tooltip title="Edit" arrow placement="top" size="md" variant="soft">
@@ -151,13 +153,13 @@ function AnimalsPage() {
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
-      };
+    };
       
-      const handleClose = () => {
+    const handleClose = () => {
         setOpenMenu(false);
         console.log("Closed menu");
         setOpenDelete(false);
-      };
+    };
 
     //-----------Edit Entry
     const[editData, setEditData] = useState({
@@ -241,6 +243,10 @@ function AnimalsPage() {
     };
 
     //-----------Misc
+    const handleFeedClick= async () => {
+        axios.put(`http://localhost/ZooDashboard/zoo_dashboard/src/backend/feedAnimal.php`, { ID: selectedRow.ID}).then(fetchTickets);
+    }
+    
     useEffect(() => {
         fetchTickets();
     }, []);
@@ -253,10 +259,10 @@ function AnimalsPage() {
     };
 
     return (
-        <div className="animals-page">
+        <div className="page">
             <Navbar/>
-            <div className="animals-banner"/>
-            <div className="animals-content">
+            <div className="banner animals-banner"/>
+            <div className="content">
                 <h1 className="title">Select an animal to see its details!</h1>
                 <div className="animal-list">
                     <DataGrid
@@ -278,6 +284,9 @@ function AnimalsPage() {
                 <div className="animal-desc">
                     {selectedRow ? (
                         <div>
+                            {selectedRow.WasFeed==="No" ? (
+                                <button className='AddButton' onClick={handleFeedClick}>Animal has eaten</button>
+                            ):(<p></p>)}
                             {loggedUser ? (<p><b>ID: </b>{selectedRow.ID}</p>):(<p></p>)}
                             <div className="details-grid">    
                                 <div className="grid-element">

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./home.css";
+import "./shared.css";
 import VisitingHoursCard from '../components/VisitingHoursCard.js';
 import TicketPricesCard from '../components/TicketPricesCard.js';
 import MapCard from '../components/MapCard.js';
@@ -15,10 +16,10 @@ function HomePage() {
     };
 
     return (
-        <div className="home-page">
+        <div className="page">
             <Navbar/>
-            <div className="home-banner"/>
-            <div className="home-content">
+            <div className="banner home-banner"/>
+            <div className="content">
                 <div className="infoCards">
                     <VisitingHoursCard/>
                     <MapCard/>

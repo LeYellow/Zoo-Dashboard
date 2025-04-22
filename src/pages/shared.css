@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+.page {
+    height: 100vh;
+    width: 100vw;
+    overflow: scroll;
+    background-color: #fffcde;
+}
+
+.banner {
+    width: 100vw;
+    height: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    margin-inline: 15vw;
+    margin-top: -300px;
+    margin-bottom: 5vh;
+    padding-inline: 30px;
+    padding-bottom: 5vh;
+    background-color: #fffcde;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+@media (max-width: 1200px) {
+    .content {
+        transition: 0.4s;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        margin-inline: 0px;
+    }
+}
+
+::-webkit-scrollbar {
+    display: none;
+}

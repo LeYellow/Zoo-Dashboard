@@ -1,34 +1,5 @@
-.animals-page {
-    height: 100vh;
-    width: 100vw;
-    overflow: scroll;
-    background-color: #fffcde;
-}
-
 .animals-banner {
-    width: 100vw;
-    height: 800px;
     background: linear-gradient(0deg, #fffcde 5%, transparent 50%), url('/src/resources/banner2.jpg') no-repeat top center;
-}
-
-.animals-content {
-    margin-inline: 15%;
-    margin-top: -300px;
-    margin-bottom: 5vh;
-    padding-inline: 30px;
-    padding-bottom: 5vh;
-    background-color: #fffcde;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
-}
-
-@media (max-width: 1200px) {
-    .animals-content {
-        transition: 0.4s;
-        border-top-left-radius: 0px;
-        border-top-right-radius: 0px;
-        margin-inline: 0px;
-    }
 }
 
 .title {
