@@ -5,7 +5,7 @@ import WelcomePage from './pages/welcome';
 import HomePage from './pages/home';
 import AnimalsPage from './pages/animals';
 import AboutPage from './pages/about';
-import MapPage from './pages/location';
+import MapPage from './pages/map';
 import NewsPage from './pages/news';
 
 function App() {

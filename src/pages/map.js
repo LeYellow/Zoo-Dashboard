@@ -1,5 +1,5 @@
 import React from 'react';
-import "./location.css";
+import "./map.css";
 import "./shared.css";
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';

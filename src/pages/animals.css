@@ -37,24 +37,40 @@
     -webkit-user-select: none;
 }
 
-.details-grid {
+.profile-grid {
     display: grid;
     grid-template-columns: repeat(2, 2fr);
     column-gap: auto;
     column-width: 300px;
-    row-gap: 20px;
+    row-gap: 40px;
     padding-block: 20px;
     padding-inline: 50px;
     border-bottom: 2px solid gray;
 }
 
-.grid-element h5 {
+.profile-element{
+    display: flex;
+    align-items: center;
+    padding: 0px;
+    list-style-type: none;
+    height: fit-content;
+    margin: 0px;
+}
+
+.profile-pic svg {
+    margin-right: 20px;
+    height: 50px;
+    width: auto;
+    color:black;
+}
+
+.profile-info h5 {
     margin: 0px;
     font-size: 20px;
     font-weight: 700;
 }
 
-.grid-element h4 {
+.profile-info h4 {
     margin: 0px;
     font-size: 30px;
     font-weight: 400;
