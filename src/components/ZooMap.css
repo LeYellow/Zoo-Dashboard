@@ -1,0 +1,33 @@
+.zoo-map {
+    padding-top: 30px;
+    position: relative;
+    width: fit-content;
+    margin-inline: auto;
+}
+
+.zoo-map img{
+    max-width: 850px;
+    max-height: auto;
+    z-index: 0;
+    user-select: none;
+}
+
+.pin {
+    height: 40px;
+    width: auto;
+    z-index: 2;
+    position: absolute;
+    color: red;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.pin:hover {
+    transform: scale(1.2);
+}
+
+.pin:active {
+    transform: scale(1.2);
+    color: darkred;
+    transition: 0s;
+}

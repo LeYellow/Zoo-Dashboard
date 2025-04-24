@@ -2,12 +2,6 @@
     background: linear-gradient(0deg, #fffcde 5%, transparent 50%), url('/src/resources/banner2.jpg') no-repeat top center;
 }
 
-.about-banner h1 {
-    color: white;
-    font-size: 100px;
-    font-family: 'Varela Round';
-}
-
 .text-block {
     padding-top: 20px;
     margin-bottom: 100px;

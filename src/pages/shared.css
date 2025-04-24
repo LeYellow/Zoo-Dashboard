@@ -15,6 +15,12 @@
     justify-content: center;
 }
 
+.banner h1 {
+    color: white;
+    font-size: 100px;
+    font-family: 'Varela Round';
+}
+
 .content {
     margin-inline: 15vw;
     margin-top: -300px;

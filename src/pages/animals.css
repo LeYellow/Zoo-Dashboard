@@ -34,7 +34,7 @@
     font-style: italic;
     font-size: larger;
     color: gray;
-    -webkit-user-select: none;
+    user-select: none;
 }
 
 .profile-grid {
