@@ -3,7 +3,7 @@
     width: 70%;
     padding-inline: 15%;
     padding-block: 30px;
-    background-color: green;
+    background-color: #173518;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     transition: 0.4s;
@@ -39,7 +39,7 @@
 
 .footer-body h6:hover {
     cursor: pointer;
-    color: grey;
+    color: beige;
 }
 
 .col1 {
@@ -59,7 +59,7 @@
 
 .col1 svg:hover {
     cursor: pointer;
-    color: grey;
+    color: beige;
 }
 
 .col1 img {
@@ -82,12 +82,18 @@
     font-weight: 500;
 }
 
-.col3 a:link, a:visited{
+.col3 a:link, a:visited {
     margin-block: 2px;
     margin-left: 20px;
     font-size: 15px;
     font-weight: 500;
     text-decoration: none;
+    color: black;
+    transition: 0.2s;
+}
+
+.col3 a:hover {
+    color: beige;
 }
 
 .col3 svg {

@@ -1,0 +1,10 @@
+.pin-note {
+    margin-inline: auto;
+    padding-inline: 50px;
+    padding-block: 20px;
+    min-height: 100px;
+    width: 300px;
+    color: bisque;
+    background-color: #173518;
+    border-radius: 20px;
+}

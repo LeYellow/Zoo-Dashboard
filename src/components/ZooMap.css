@@ -31,3 +31,26 @@
     color: darkred;
     transition: 0s;
 }
+
+.pin-buttons {
+    cursor: pointer;
+    padding-block: 10px;
+    padding-inline: 15px;
+    margin-top: -5px;
+    color: bisque;
+    background-color: #173518;
+}
+
+.pin-buttons:hover {
+    color: #173518;
+    background-color: bisque;
+    transition: 0.5s;
+}
+
+.add-pin {
+    border-bottom-left-radius: 5px;
+}
+    
+.delete-pin {
+    border-bottom-right-radius: 5px;
+}
