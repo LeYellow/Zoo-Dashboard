@@ -19,11 +19,12 @@
     color: white;
     font-size: 100px;
     font-family: 'Varela Round';
+    padding-bottom: 200px;
 }
 
 .content {
     margin-inline: 15vw;
-    margin-top: -300px;
+    margin-top: -330px;
     margin-bottom: 5vh;
     padding-inline: 30px;
     padding-bottom: 5vh;

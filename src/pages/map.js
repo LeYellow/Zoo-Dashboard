@@ -17,10 +17,11 @@ function MapPage() {
     return (
         <div className="page">
             <Navbar/>
-                <div className="banner location-banner">
+                <div className="banner zooMap-banner">
                     <h1>Zoo Map</h1>
                 </div>
-                <div className="content">
+                <div className="content zooMap-content">
+                    <h2 className="map-text">First time at our zoo? Here is a map with every sanctuary an point of interest. Just click on a pin.</h2>
                     <ZooMap onPinClick={extractPinID}/>
                     <PinInfo pinId={selectedPin}/>
                 </div>

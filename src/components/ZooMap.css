@@ -10,6 +10,7 @@
     max-height: auto;
     z-index: 0;
     user-select: none;
+    border-radius: 10px;
 }
 
 .pin {

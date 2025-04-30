@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import "./PinInfo.css";
 import axios from 'axios';
+import aniPic from "../resources/ph-img-wide.png";
 
 function PinInfo({pinId}) {
     const[info, setInfo] = useState([]);
@@ -37,6 +38,11 @@ function PinInfo({pinId}) {
                 <div>
                     <b>{info.Title}</b>
                     <p>{info.Descr}</p>
+                    {info.Img ? (
+                        <img src={`http://localhost/ZooDashboard/images/Pins/${info.Img}`} alt="animal-pic"/>
+                    ) : (
+                        <img src={aniPic} alt="animal-pic"/>
+                    )}
                 </div>
             ) : (
                 <h6>Please select a point of interest to see it's description</h6>

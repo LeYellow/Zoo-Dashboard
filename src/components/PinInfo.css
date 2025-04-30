@@ -8,3 +8,8 @@
     background-color: #173518;
     border-radius: 20px;
 }
+
+.pin-note img {
+    width: 300px;
+    height: 200px;
+}
