@@ -3,7 +3,7 @@
     width: 70%;
     padding-inline: 15%;
     padding-block: 30px;
-    background-color: #173518;
+    background-color: green;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     transition: 0.4s;

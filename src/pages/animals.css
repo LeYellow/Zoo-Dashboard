@@ -2,25 +2,28 @@
     background: linear-gradient(0deg, #fffcde 5%, transparent 50%), url('/src/resources/banner2.jpg') no-repeat top center;
 }
 
-.title {
-    padding-block: 20px;
-    margin-top: 0px;
+.animals-text {
+    margin-top: 0;
+    margin-inline: auto;
+    padding-top: 40px;
+    width: 700px;
+    text-align: center;
 }
 
 .animal-list {
     margin-bottom: 30px;
     margin-inline: auto;
     height: 400px;
-    max-width: 800px;
+    max-width: 1000px;
     background-color: white;
 }
 
 .animal-desc {
     margin-inline: auto;
-    padding-inline: 50px;
     min-height: 400px;
-    max-width: 700px;
+    max-width: 1000px;
     background-color: white;
+    border-radius: 15px;
 }
 
 .animal-desc p {
@@ -37,11 +40,40 @@
     user-select: none;
 }
 
+.animal-desc-table {
+    display: flex;
+    padding-block: 10px;
+    min-height: 400px;
+}
+
+.animal-desc img {
+    height: 400px;
+    width: 300px;
+    border-radius: 20px;
+}
+
+.animal-image {
+    flex: 1;
+    width: fit-content;
+    margin-inline: 10px;
+    align-self: center;
+}
+
+@media (max-width: 800px) {
+    .animal-desc-table {
+        flex-direction: column;
+    }
+
+    .animal-image {
+        margin-top: 20px;
+    }
+}
+
 .profile-grid {
     display: grid;
     grid-template-columns: repeat(2, 2fr);
     column-gap: auto;
-    column-width: 300px;
+    column-width: 150px;
     row-gap: 40px;
     padding-block: 20px;
     padding-inline: 50px;
@@ -57,7 +89,7 @@
     margin: 0px;
 }
 
-.profile-pic svg {
+.profile-icon svg {
     margin-right: 20px;
     height: 50px;
     width: auto;
@@ -77,17 +109,35 @@
 }
 
 .AddButton{
-    border-radius: 8px;
-    border: 2px solid green;
-    font-size: 14px;
-    font-weight: bold;
-    color: green;
-    transition-duration: 0.3s;
     float: right;
+    cursor: pointer;
+    padding-block: 10px;
+    padding-inline: 15px;
+    margin-top: -5px;
+    color: bisque;
+    background-color: #173518;
+    border-radius: 5px;
 }
 
-button:hover.AddButton{
+.AddButton:hover {
+    color: #173518;
+    background-color: bisque;
+    transition: 0.5s;
+}
+
+.FeedButton{
+    float: right;
     cursor: pointer;
-    background-color: green;
-    color: white;
+    padding-block: 5px;
+    padding-inline: 10px;
+    margin-top: 5px;
+    color: bisque;
+    background-color: #173518;
+    border-radius: 5px;
+}
+
+.FeedButton:hover {
+    color: #173518;
+    background-color: bisque;
+    transition: 0.5s;
 }

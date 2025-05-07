@@ -8,24 +8,18 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import DeleteForeverRoundedIcon from '@mui/icons-material/DeleteForeverRounded';
 import BorderColorRoundedIcon from '@mui/icons-material/BorderColorRounded';
+import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
+import aniPic from "../resources/ph-img-tall.png";
 
 function AnimalsPage() {
-    const loggedUser = 1;   //trigger login
+    const loggedUser = 0;   //trigger login
     const [error, setError] = useState("");
     const [openMenu, setOpenMenu] = useState(false);
     const [openDelete, setOpenDelete] = useState(false);
     const [isEditMode, setIsEditMode] = useState(false);
     const [selectedRow, setSelectedRow] = useState(null);
     const [selectedID, setselectedID] = useState(null);
-    const [notes, setNotes] = useState({
-        ID: '',
-        Name: '',
-        Characteristics: '',
-        Food: '',
-        Status: '',
-        About: '',
-        Age: '',
-    });
+    const [notes, setNotes] = useState([]);
     const [data, setData] = useState([]);
     const [formData, setFormData] = useState({
         Name: '',
@@ -94,10 +88,13 @@ function AnimalsPage() {
               setNotes(response.data[0]);
             } else {
               setNotes({
-                Description: 'No description available.',
-                Requestor: 'N/A',
-                Team: 'N/A',
-                ProjectName: 'N/A'
+                ID: 'N/A',
+                Name: 'N/A',
+                Characteristics: 'N/A',
+                Food: 'N/A',
+                Status: 'N/A',
+                About: 'N/A',
+                Age: 'N/A',
               });
             }
           } else {
@@ -262,7 +259,7 @@ function AnimalsPage() {
             <Navbar/>
             <div className="banner animals-banner"/>
             <div className="content">
-                <h1 className="title">Select an animal to see its details!</h1>
+                <h2 className="animals-text">Here is our collection of animals, just click on one to see everything about him.</h2>
                 <div className="animal-list">
                     <DataGrid
                         rows={data}
@@ -282,67 +279,78 @@ function AnimalsPage() {
                 </div>
                 <div className="animal-desc">
                     {selectedRow ? (
-                        <div>
-                            {selectedRow.WasFeed==="No" ? (
-                                <button className='AddButton' onClick={handleFeedClick}>Animal has eaten</button>
-                            ):(<p></p>)}
-                            {loggedUser ? (<p><b>ID: </b>{selectedRow.ID}</p>):(<p></p>)}
-                            <div className="profile-grid">    
-                                <ul className="profile-element">
-                                    <li className="profile-pic">
-                                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M12 1C8.96243 1 6.5 3.46243 6.5 6.5C6.5 9.53757 8.96243 12 12 12C15.0376 12 17.5 9.53757 17.5 6.5C17.5 3.46243 15.0376 1 12 1Z" fill="currentColor"/>
-                                            <path d="M7 14C4.23858 14 2 16.2386 2 19V22C2 22.5523 2.44772 23 3 23H21C21.5523 23 22 22.5523 22 22V19C22 16.2386 19.7614 14 17 14H7Z" fill="currentColor"/>
-                                        </svg>
-                                    </li>
-                                    <li className="profile-info">
-                                        <h5>Name</h5>
-                                        <h4>{notes.Name}</h4>
-                                    </li>
-                                </ul>
-                                <ul className="profile-element">
-                                    <li className="profile-pic">
-                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M12 6c1.11 0 2-.9 2-2 0-.38-.1-.73-.29-1.03L12 0l-1.71 2.97c-.19.3-.29.65-.29 1.03 0 1.1.9 2 2 2zm4.6 9.99l-1.07-1.07-1.08 1.07c-1.3 1.3-3.58 1.31-4.89 0l-1.07-1.07-1.09 1.07C6.75 16.64 5.88 17 4.96 17c-.73 0-1.4-.23-1.96-.61V21c0 .55.45 1 1 1h16c.55 0 1-.45 1-1v-4.61c-.56.38-1.23.61-1.96.61-.92 0-1.79-.36-2.44-1.01zM18 9h-5V7h-2v2H6c-1.66 0-3 1.34-3 3v1.54c0 1.08.88 1.96 1.96 1.96.52 0 1.02-.2 1.38-.57l2.14-2.13 2.13 2.13c.74.74 2.03.74 2.77 0l2.14-2.13 2.13 2.13c.37.37.86.57 1.38.57 1.08 0 1.96-.88 1.96-1.96V12C21 10.34 19.66 9 18 9z" fill="currentColor"/>
-                                        </svg>
-                                    </li>
-                                    <li className="profile-info">
-                                        <h5>Age</h5>
-                                        <h4>{notes.Age}</h4>
-                                    </li>
-                                </ul>
-                                <ul className="profile-element">
-                                    <li className="profile-pic">
-                                        <svg viewBox="0 -3.84 122.88 122.88" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M29.03,100.46l20.79-25.21l9.51,12.13L41,110.69C33.98,119.61,20.99,110.21,29.03,100.46L29.03,100.46z M53.31,43.05 c1.98-6.46,1.07-11.98-6.37-20.18L28.76,1c-2.58-3.03-8.66,1.42-6.12,5.09L37.18,24c2.75,3.34-2.36,7.76-5.2,4.32L16.94,9.8 c-2.8-3.21-8.59,1.03-5.66,4.7c4.24,5.1,10.8,13.43,15.04,18.53c2.94,2.99-1.53,7.42-4.43,3.69L6.96,18.32 c-2.19-2.38-5.77-0.9-6.72,1.88c-1.02,2.97,1.49,5.14,3.2,7.34L20.1,49.06c5.17,5.99,10.95,9.54,17.67,7.53 c1.03-0.31,2.29-0.94,3.64-1.77l44.76,57.78c2.41,3.11,7.06,3.44,10.08,0.93l0.69-0.57c3.4-2.83,3.95-8,1.04-11.34L50.58,47.16 C51.96,45.62,52.97,44.16,53.31,43.05L53.31,43.05z M65.98,55.65l7.37-8.94C63.87,23.21,99-8.11,116.03,6.29 C136.72,23.8,105.97,66,84.36,55.57l-8.73,11.09L65.98,55.65L65.98,55.65z" fill="currentColor"/>
-                                        </svg>
-                                    </li>
-                                    <li className="profile-info">
-                                        <h5>Favorite Food</h5>
-                                        <h4>{notes.Food}</h4>
-                                    </li>
-                                </ul>
-                                <ul className="profile-element">
-                                    <li className="profile-pic">
-                                        <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M1.24264 8.24264L8 15L14.7574 8.24264C15.553 7.44699 16 6.36786 16 5.24264V5.05234C16 2.8143 14.1857 1 11.9477 1C10.7166 1 9.55233 1.55959 8.78331 2.52086L8 3.5L7.21669 2.52086C6.44767 1.55959 5.28338 1 4.05234 1C1.8143 1 0 2.8143 0 5.05234V5.24264C0 6.36786 0.44699 7.44699 1.24264 8.24264Z" fill="currentColor"/>
-                                        </svg>
-                                    </li>
-                                    <li className="profile-info">
-                                        <h5>Status</h5>
-                                        <h4>{notes.Status}</h4>
-                                    </li>
-                                </ul>
+                        <div className="animal-desc-table">
+                            <div className="animal-image">
+                                {notes.Img ? (
+                                    <img src={`http://localhost/ZooDashboard/images/Animals/${notes.Img}`} alt="animal-pic"/>
+                                ) : (
+                                    <img src={aniPic} alt="animal-pic"/>
+                                )}
                             </div>
-                            <p><b>Unique Traits: </b>{notes.Characteristics}</p>
-                            <p><b>About: </b>{notes.About}</p>
+                            <div className="animal-text">
+                                {selectedRow.WasFeed==="No" && loggedUser ? (
+                                    <button className="FeedButton" onClick={handleFeedClick}>Animal has eaten</button>
+                                ):(<p></p>)}
+                                {loggedUser ? (<p><b>ID: </b>{selectedRow.ID}</p>):(<p></p>)}
+                                <div className="profile-grid">    
+                                    <ul className="profile-element">
+                                        <li className="profile-icon">
+                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M12 1C8.96243 1 6.5 3.46243 6.5 6.5C6.5 9.53757 8.96243 12 12 12C15.0376 12 17.5 9.53757 17.5 6.5C17.5 3.46243 15.0376 1 12 1Z" fill="currentColor"/>
+                                                <path d="M7 14C4.23858 14 2 16.2386 2 19V22C2 22.5523 2.44772 23 3 23H21C21.5523 23 22 22.5523 22 22V19C22 16.2386 19.7614 14 17 14H7Z" fill="currentColor"/>
+                                            </svg>
+                                        </li>
+                                        <li className="profile-info">
+                                            <h5>Name</h5>
+                                            <h4>{notes.Name}</h4>
+                                        </li>
+                                    </ul>
+                                    <ul className="profile-element">
+                                        <li className="profile-icon">
+                                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12 6c1.11 0 2-.9 2-2 0-.38-.1-.73-.29-1.03L12 0l-1.71 2.97c-.19.3-.29.65-.29 1.03 0 1.1.9 2 2 2zm4.6 9.99l-1.07-1.07-1.08 1.07c-1.3 1.3-3.58 1.31-4.89 0l-1.07-1.07-1.09 1.07C6.75 16.64 5.88 17 4.96 17c-.73 0-1.4-.23-1.96-.61V21c0 .55.45 1 1 1h16c.55 0 1-.45 1-1v-4.61c-.56.38-1.23.61-1.96.61-.92 0-1.79-.36-2.44-1.01zM18 9h-5V7h-2v2H6c-1.66 0-3 1.34-3 3v1.54c0 1.08.88 1.96 1.96 1.96.52 0 1.02-.2 1.38-.57l2.14-2.13 2.13 2.13c.74.74 2.03.74 2.77 0l2.14-2.13 2.13 2.13c.37.37.86.57 1.38.57 1.08 0 1.96-.88 1.96-1.96V12C21 10.34 19.66 9 18 9z" fill="currentColor"/>
+                                            </svg>
+                                        </li>
+                                        <li className="profile-info">
+                                            <h5>Age</h5>
+                                            <h4>{notes.Age}</h4>
+                                        </li>
+                                    </ul>
+                                    <ul className="profile-element">
+                                        <li className="profile-icon">
+                                            <svg viewBox="0 -3.84 122.88 122.88" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M29.03,100.46l20.79-25.21l9.51,12.13L41,110.69C33.98,119.61,20.99,110.21,29.03,100.46L29.03,100.46z M53.31,43.05 c1.98-6.46,1.07-11.98-6.37-20.18L28.76,1c-2.58-3.03-8.66,1.42-6.12,5.09L37.18,24c2.75,3.34-2.36,7.76-5.2,4.32L16.94,9.8 c-2.8-3.21-8.59,1.03-5.66,4.7c4.24,5.1,10.8,13.43,15.04,18.53c2.94,2.99-1.53,7.42-4.43,3.69L6.96,18.32 c-2.19-2.38-5.77-0.9-6.72,1.88c-1.02,2.97,1.49,5.14,3.2,7.34L20.1,49.06c5.17,5.99,10.95,9.54,17.67,7.53 c1.03-0.31,2.29-0.94,3.64-1.77l44.76,57.78c2.41,3.11,7.06,3.44,10.08,0.93l0.69-0.57c3.4-2.83,3.95-8,1.04-11.34L50.58,47.16 C51.96,45.62,52.97,44.16,53.31,43.05L53.31,43.05z M65.98,55.65l7.37-8.94C63.87,23.21,99-8.11,116.03,6.29 C136.72,23.8,105.97,66,84.36,55.57l-8.73,11.09L65.98,55.65L65.98,55.65z" fill="currentColor"/>
+                                            </svg>
+                                        </li>
+                                        <li className="profile-info">
+                                            <h5>Favorite Food</h5>
+                                            <h4>{notes.Food}</h4>
+                                        </li>
+                                    </ul>
+                                    <ul className="profile-element">
+                                        <li className="profile-icon">
+                                            <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1.24264 8.24264L8 15L14.7574 8.24264C15.553 7.44699 16 6.36786 16 5.24264V5.05234C16 2.8143 14.1857 1 11.9477 1C10.7166 1 9.55233 1.55959 8.78331 2.52086L8 3.5L7.21669 2.52086C6.44767 1.55959 5.28338 1 4.05234 1C1.8143 1 0 2.8143 0 5.05234V5.24264C0 6.36786 0.44699 7.44699 1.24264 8.24264Z" fill="currentColor"/>
+                                            </svg>
+                                        </li>
+                                        <li className="profile-info">
+                                            <h5>Status</h5>
+                                            <h4>{notes.Status}</h4>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <p><b>Unique Traits: </b>{notes.Characteristics}</p>
+                                <p><b>About: </b>{notes.About}</p>
+                            </div>
                         </div>
                     ) : (
                         <h6>Please select an animal</h6>
-                    )}  
+                    )}
                 </div>
                 {loggedUser ? (
-                    <button className='AddButton' onClick={handleAddClick}>Add Animal</button>
+                    <Tooltip title="Add Animal" arrow placement="top" size="md" variant="soft">
+                        <PersonAddAlt1Icon className='AddButton' onClick={handleAddClick}/>
+                    </Tooltip>
                 ):(<p></p>)}
             </div>
 

@@ -1,7 +1,8 @@
 import React from 'react';
 import './welcome.css';
-import TrendingFlatIcon from '@mui/icons-material/TrendingFlat';
 import { useNavigate } from 'react-router-dom';
+import TrendingFlatIcon from '@mui/icons-material/TrendingFlat';
+import Login from '../components/Login';
 
 function WelcomePage() {
     const navigate = useNavigate();
@@ -32,9 +33,7 @@ function WelcomePage() {
                     }}
                 />
             </div>
-            <button className="login-btn">
-                admin
-            </button>
+            <Login/>
         </div>
     );
 }
