@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { Dialog, DialogContent, DialogActions, Button, TextField, DialogTitle, DialogContentText, MenuItem, Select, InputLabel, FormControl, Tooltip } from '@mui/material';
 import "./animals.css";
 import "./shared.css";
+import AuthContext from '../context/AuthProvider';
 import axios from 'axios';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -12,7 +13,7 @@ import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 import aniPic from "../resources/ph-img-tall.png";
 
 function AnimalsPage() {
-    const loggedUser = 0;   //trigger login
+    const { auth } = useContext(AuthContext);
     const [error, setError] = useState("");
     const [openMenu, setOpenMenu] = useState(false);
     const [openDelete, setOpenDelete] = useState(false);
@@ -35,14 +36,14 @@ function AnimalsPage() {
         Age: '',
     });
     const columnsTicket = [
-        ...(loggedUser ? [{ field: 'ID', headerName: 'ID', maxWidth: 20, headerAlign: 'center', headerClassName: 'TableHeader' }] : []),
+        ...(auth?.Username ? [{ field: 'ID', headerName: 'ID', maxWidth: 20, headerAlign: 'center', headerClassName: 'TableHeader' }] : []),
         { field: 'Name', headerName: 'Name', minWidth: 80, flex: 1, headerAlign: 'center', headerClassName: 'TableHeader'  },
         { field: 'Species', headerName: 'Species', minWidth: 80, flex: 1, headerAlign: 'center', headerClassName: 'TableHeader'  },
         { field: 'Breed', headerName: 'Breed', minWidth: 100, flex: 1, headerAlign: 'center', headerClassName: 'TableHeader'  },
         { field: 'Enclosure', headerName: 'Enclosure', minWidth: 100, flex: 0.3, headerAlign: 'center', headerClassName: 'TableHeader'  },
-        ...(loggedUser ? [{ field: 'WasFeed', headerName: 'Has Eat', minWidth: 80, flex: 0.3, headerAlign: 'center', headerClassName: 'TableHeader'  }] : []),
-        ...(loggedUser ? [{ field: 'Responsible', headerName: 'Responsible', minWidth: 110, flex: 1, headerAlign: 'center', headerClassName: 'TableHeader'  }] : []),
-        ...(loggedUser ? [{ field: 'Functions', headerName: 'Functions', minWidth: 130, flex: 1, headerAlign: 'center', headerClassName: 'TableHeader',
+        ...(auth?.Username ? [{ field: 'WasFeed', headerName: 'Has Eat', minWidth: 80, flex: 0.3, headerAlign: 'center', headerClassName: 'TableHeader'  }] : []),
+        ...(auth?.Username ? [{ field: 'Responsible', headerName: 'Responsible', minWidth: 110, flex: 1, headerAlign: 'center', headerClassName: 'TableHeader'  }] : []),
+        ...(auth?.Username ? [{ field: 'Functions', headerName: 'Functions', minWidth: 130, flex: 1, headerAlign: 'center', headerClassName: 'TableHeader',
             renderCell: (params) => (
                 <div>
                     <Tooltip title="Edit" arrow placement="top" size="md" variant="soft">
@@ -288,10 +289,10 @@ function AnimalsPage() {
                                 )}
                             </div>
                             <div className="animal-text">
-                                {selectedRow.WasFeed==="No" && loggedUser ? (
+                                {selectedRow.WasFeed==="No" && auth?.Username ? (
                                     <button className="FeedButton" onClick={handleFeedClick}>Animal has eaten</button>
                                 ):(<p></p>)}
-                                {loggedUser ? (<p><b>ID: </b>{selectedRow.ID}</p>):(<p></p>)}
+                                {auth?.Username ? (<p><b>ID: </b>{selectedRow.ID}</p>):(<p></p>)}
                                 <div className="profile-grid">    
                                     <ul className="profile-element">
                                         <li className="profile-icon">
@@ -347,7 +348,7 @@ function AnimalsPage() {
                         <h6>Please select an animal</h6>
                     )}
                 </div>
-                {loggedUser ? (
+                {auth?.Username ? (
                     <Tooltip title="Add Animal" arrow placement="top" size="md" variant="soft">
                         <PersonAddAlt1Icon className='AddButton' onClick={handleAddClick}/>
                     </Tooltip>

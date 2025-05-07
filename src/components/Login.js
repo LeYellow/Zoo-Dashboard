@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import "./Login.css";
 import { Dialog, DialogContent, DialogActions, Button, TextField, DialogTitle, FormControl, InputLabel, OutlinedInput } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import AuthContext from '../context/AuthProvider';
 import axios from 'axios';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
@@ -9,6 +10,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 
 function Login () {
+    const { setAuth } = useContext(AuthContext);
     const navigate = useNavigate();
     const [openMenu, setOpenMenu] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
@@ -16,7 +18,6 @@ function Login () {
     const [loginSucces, setLoginSucces] = useState('');
     const handleClickShowPassword = () => setShowPassword((show) => !show);
     const handleShowMenu = () => setOpenMenu((openMenu) => !openMenu);
-
     const [userData, setUserData] = useState({
         Username: '',
         Password: '',
@@ -31,6 +32,7 @@ function Login () {
             console.log(response.data);   //debug
             setLoginError('');
             setLoginSucces("Login succesful, please wait");
+            setAuth(userData);
             setTimeout(() => {
                 handleShowMenu(); 
                 navigate('/home');

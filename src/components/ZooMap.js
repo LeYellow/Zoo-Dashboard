@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import "./ZooMap.css";
 import axios from 'axios';
 import { Dialog, DialogContent, DialogActions, Button, TextField, DialogTitle, Tooltip, DialogContentText } from '@mui/material';
+import AuthContext from '../context/AuthProvider';
 import zoomap from "../resources/zoomap.png";
 import AddLocationAltIcon from '@mui/icons-material/AddLocationAlt';
 import LocationOffIcon from '@mui/icons-material/LocationOff';
 
 function ZooMap({onPinClick}) {
-    const loggedUser = 1;   //trigger login
+    const { auth } = useContext(AuthContext);
     const [pins, setPins] = useState([]);
     const [openMenu, setOpenMenu] = useState(false);
     const [openDelete, setOpenDelete] = useState(false);
@@ -133,7 +134,7 @@ function ZooMap({onPinClick}) {
                         </svg>
                     )    
                 })}
-                {loggedUser ? (
+                {auth?.Username ? (
                     <div>
                         <Tooltip title="Add Pin" arrow placement="bottom" size="md" variant="soft">
                             <AddLocationAltIcon className="pin-buttons add-pin" onClick={handleAddClick}/>

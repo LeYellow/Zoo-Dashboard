@@ -75,3 +75,8 @@
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
+
+.logout-btn {
+    border-radius: 10px;
+    margin-right: 30px;
+}
