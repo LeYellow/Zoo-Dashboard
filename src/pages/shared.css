@@ -1,9 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 
 .page {
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
-    overflow: scroll;
     background-color: #fffcde;
 }
 

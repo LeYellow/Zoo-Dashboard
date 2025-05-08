@@ -3,10 +3,11 @@ import { DataGrid } from '@mui/x-data-grid';
 import { Dialog, DialogContent, DialogActions, Button, TextField, DialogTitle, DialogContentText, MenuItem, Select, InputLabel, FormControl, Tooltip } from '@mui/material';
 import "./animals.css";
 import "./shared.css";
-import AuthContext from '../context/AuthProvider';
 import axios from 'axios';
+import AuthContext from '../context/AuthProvider';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import ScrollTopButton from "../components/ScrollTopButton";
 import DeleteForeverRoundedIcon from '@mui/icons-material/DeleteForeverRounded';
 import BorderColorRoundedIcon from '@mui/icons-material/BorderColorRounded';
 import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
@@ -136,7 +137,7 @@ function AnimalsPage() {
             Breed: '',
             Enclosure: '',
             WasFeed: '',
-            Responsible: '',
+            Responsible: auth?.Username,
             Characteristics: '',
             Food: '',
             Status: '',
@@ -404,6 +405,8 @@ function AnimalsPage() {
             </Dialog>
 
             <Footer/>
+
+            <ScrollTopButton/>
         </div>
     );
 }

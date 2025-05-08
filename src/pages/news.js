@@ -4,6 +4,7 @@ import "./shared.css";
 import NewsCard from "../components/NewsCard";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ScrollTopButton from "../components/ScrollTopButton";
 
 function NewsPage() {
 
@@ -23,6 +24,7 @@ function NewsPage() {
                 </div>
             </div>
             <Footer/>
+            <ScrollTopButton/>
         </div>
     );
 

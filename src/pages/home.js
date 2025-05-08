@@ -8,6 +8,7 @@ import MapCard from '../components/MapCard.js';
 import Navbar from '../components/Navbar.js';
 import NewsCard from '../components/NewsCard.js';
 import Footer from '../components/Footer.js';
+import ScrollTopButton from "../components/ScrollTopButton";
 
 function HomePage() {
     const navigate = useNavigate();
@@ -42,6 +43,7 @@ function HomePage() {
                 </div>
             </div>
             <Footer/>
+            <ScrollTopButton/>
         </div>
     );
 }

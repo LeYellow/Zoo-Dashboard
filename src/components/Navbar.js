@@ -23,7 +23,11 @@ function Navbar() {
     return (
         <div className="navbar-body" style={auth?.Username ? {backgroundColor: 'red'} : {}}>
             <img src={logo} alt="zoo" onClick={homeClick}/>
-            <p>Timisoara Zoological Garden</p>
+            {auth?.Username ? (
+                <p>Admin mode : {auth?.Username}</p>
+            ) : (
+                <p>Timisoara Zoological Garden</p>
+            )}
             <div className="nav-buttons">
                 <button className="home-btn" onClick={homeClick}>
                     Home

@@ -3,6 +3,7 @@ import './about.css';
 import "./shared.css";
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import ScrollTopButton from "../components/ScrollTopButton";
 
 function AboutPage() {
 
@@ -53,6 +54,7 @@ function AboutPage() {
                 </div>
             </div>
             <Footer/>
+            <ScrollTopButton/>
         </div>
     );
 }

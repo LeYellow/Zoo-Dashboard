@@ -3,6 +3,7 @@ import "./map.css";
 import "./shared.css";
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import ScrollTopButton from "../components/ScrollTopButton";
 import ZooMap from '../components/ZooMap';
 import PinInfo from '../components/PinInfo';
 
@@ -26,6 +27,7 @@ function MapPage() {
                     <PinInfo pinId={selectedPin}/>
                 </div>
             <Footer/>
+            <ScrollTopButton/>
         </div>
     );
 }
