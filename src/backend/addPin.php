@@ -14,6 +14,7 @@ $Y=$pinData['Y'];
 
 $Title=$pinData['Title'];
 $Descr=$pinData['Descr'];
+$Img=$pinData['Img'];
 
 $sql = "INSERT INTO Pins (X, Y) VALUES (?, ?)";
 $params = array($X, $Y); 
@@ -22,8 +23,8 @@ if (!$stmt) {
     die(print_r(sqlsrv_errors(), true));
 }
 
-$sql = "INSERT INTO PinsInfo (Title, Descr) VALUES (?, ?)";
-$params = array($Title, $Descr);
+$sql = "INSERT INTO PinsInfo (Title, Descr, Img) VALUES (?, ?, ?)";
+$params = array($Title, $Descr, $Img);
 $stmt = sqlsrv_query($conn, $sql, $params);
 if (!$stmt) {
     die(print_r(sqlsrv_errors(), true));

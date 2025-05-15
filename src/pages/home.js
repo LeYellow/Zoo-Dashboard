@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import "./home.css";
 import "./shared.css";
+import axios from "axios";
 import VisitingHoursCard from '../components/VisitingHoursCard.js';
 import TicketPricesCard from '../components/TicketPricesCard.js';
 import MapCard from '../components/MapCard.js';
@@ -12,9 +13,29 @@ import ScrollTopButton from "../components/ScrollTopButton";
 
 function HomePage() {
     const navigate = useNavigate();
-    const newsClick = () => {
-        navigate('/news');
+    const newsClick = () => {navigate('/news')};
+    const [ cardDetails, setCardDetails ] = useState([]);
+
+    const fetchNewsCards = async () => {
+        try {
+            const response = await axios.get("http://localhost/ZooDashboard/zoo_dashboard/src/backend/getNewsCardsLast.php");
+            //console.log(response);    //debug
+            if(Array.isArray(response.data)){
+                if(response.data.length>0 && typeof response.data[0] === 'object'){
+                    setCardDetails(response.data);
+                }
+            } else {
+                console.error('News Cards: expected array but received: ', response.data);
+            }
+        } catch (error) {
+            console.error('Error fetching Cards: ', error);
+        }
     };
+
+    useEffect(() => {
+        fetchNewsCards();
+        window.scrollTo({top: 0});
+    }, []);
 
     return (
         <div className="page">
@@ -36,9 +57,9 @@ function HomePage() {
                         <button onClick={newsClick}>All News →</button>
                     </div>
                     <div className="newsCards-content">
-                        <NewsCard title="The zoo is closed" subtitle="Sorry, covid and Fritz had other plans" date="10/03/2020"/>
-                        <NewsCard title="Bee Movie is Out" subtitle="Despite its aerodynamics a bee should not be able to fly ..." date="02/11/2007"/>
-                        <NewsCard title="The site is now live!" subtitle="This is a string for testing subtitle" date="19/02/2025"/>
+                        {cardDetails.slice(0).reverse().map((card,index) => (
+                            <NewsCard key={index} id={card.ID} title={card.Title} subtitle={card.SubTitle} date={card.Date} img={card.Img}/>
+                        ))}
                     </div>
                 </div>
             </div>

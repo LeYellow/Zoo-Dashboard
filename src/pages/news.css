@@ -9,3 +9,12 @@
     row-gap: 30px;
     column-gap: 30px;
 }
+
+@media (max-width: 800px) {
+    .news-grid {
+        grid-template-columns: 100%;
+        grid-template-areas: "a" "b" "c";
+        row-gap: 30px;
+        justify-self: center;
+    }
+}

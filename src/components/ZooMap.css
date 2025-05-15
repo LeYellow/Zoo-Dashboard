@@ -51,6 +51,18 @@
 .add-pin {
     border-bottom-left-radius: 5px;
 }
+
+.add-photo-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.add-photo-btn p {
+    margin: 0px;
+    margin-left: 20px;
+}
     
 .delete-pin {
     border-bottom-right-radius: 5px;

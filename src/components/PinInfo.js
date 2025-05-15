@@ -39,7 +39,7 @@ function PinInfo({pinId}) {
                     <b>{info.Title}</b>
                     <p>{info.Descr}</p>
                     {info.Img ? (
-                        <img src={`http://localhost/ZooDashboard/images/Pins/${info.Img}`} alt="place-pic"/>
+                        <img src={`http://localhost/ZooDashboard/extResources/Pins/${info.Img}`} alt="place-pic"/>
                     ) : (
                         <img src={placePic} alt="place-pic"/>
                     )}

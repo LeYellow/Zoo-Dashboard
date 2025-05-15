@@ -5,6 +5,7 @@ import AnimalsPage from './pages/animals';
 import AboutPage from './pages/about';
 import MapPage from './pages/map';
 import NewsPage from './pages/news';
+import NewsTemplate from '../src/news-articles/news-template';
 
 function App() {
   document.title = 'Zoo Dashboard';
@@ -17,6 +18,7 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/map" element={<MapPage />} />
         <Route path="/news" element={<NewsPage />} />
+        <Route path="/news/:artID/:title" element={<NewsTemplate />} />
       </Routes>
     </Router>
   );

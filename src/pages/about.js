@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './about.css';
 import "./shared.css";
 import Navbar from '../components/Navbar';
@@ -6,6 +6,10 @@ import Footer from '../components/Footer';
 import ScrollTopButton from "../components/ScrollTopButton";
 
 function AboutPage() {
+
+    useEffect(() => {
+        window.scrollTo({top: 0});
+    }, []);
 
     return (
         <div className="page">

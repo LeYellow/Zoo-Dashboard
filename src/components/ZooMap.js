@@ -14,11 +14,13 @@ function ZooMap({onPinClick}) {
     const [openDelete, setOpenDelete] = useState(false);
     const [selectedPinID, setSelectedPinID] = useState(null);
     const [isAddingPin, setIsAddingPin] = useState(false);
+    const [pinImage, setPinImage] = useState('');
     const [pinData, setPinData] = useState({
         X: '',
         Y: '',
         Title: '',
         Descr: '',
+        Img: '',
     });
 
     const fetchPinsCoords = async () => {
@@ -38,7 +40,7 @@ function ZooMap({onPinClick}) {
     };
 
     const handleAddPin = async (event) => {
-        console.log("add submit pressed");
+        //console.log("add submit pressed");  //debug
         event.preventDefault();
 
         await axios.post("http://localhost/ZooDashboard/zoo_dashboard/src/backend/addPin.php", pinData)
@@ -50,7 +52,15 @@ function ZooMap({onPinClick}) {
         .catch(error => {
             console.error('There was an error adding the pin!', error);
         });
-        console.log(pinData);
+
+        const imageData = new FormData();
+        imageData.append('image', pinImage);
+        await axios.post("http://localhost/ZooDashboard/zoo_dashboard/src/backend/addPinImage.php", imageData, {
+            headers: {
+                'Content-Type' : 'multipart/form-data'
+            }
+        });
+        //console.log(pinData);   //debug
     };
 
     const handleAddClick = () => {
@@ -67,6 +77,13 @@ function ZooMap({onPinClick}) {
     const handleChange = (e) => {
         setPinData({ ...pinData, [e.target.name]: e.target.value });
     };
+
+    const handlePhotoChange = (e) => {
+		if (e.target.files.length > 0) {
+            setPinData({ ...pinData, [e.target.name]: e.target.files[0].name })
+		}
+        setPinImage(e.target.files[0]);
+	};
 
     const handleClose = () => {
         setIsAddingPin(false);
@@ -114,7 +131,7 @@ function ZooMap({onPinClick}) {
                 <img src={zoomap} alt='map' onClick={handleMapClick} style={{ cursor: isAddingPin ? 'crosshair' : 'default' }} />
                 {pins.map((pin,index) => {
                     const pinClick = () => {
-                        console.log("s-a apasat ", pin.X,"," , pin.Y);  //debug
+                        //console.log("s-a apasat ", pin.X,"," , pin.Y);  //debug
                         if(onPinClick) onPinClick(pin.ID);
                         setSelectedPinID(pin.ID);
                     };
@@ -134,7 +151,7 @@ function ZooMap({onPinClick}) {
                         </svg>
                     )    
                 })}
-                {auth?.Username ? (
+                {auth?.Username && (
                     <div>
                         <Tooltip title="Add Pin" arrow placement="bottom" size="md" variant="soft">
                             <AddLocationAltIcon className="pin-buttons add-pin" onClick={handleAddClick}/>
@@ -143,16 +160,26 @@ function ZooMap({onPinClick}) {
                             <LocationOffIcon className="pin-buttons delete-pin" onClick={() => handleDeleteClick(selectedPinID)}/>
                         </Tooltip>
                     </div>
-                ):(<p></p>)}
+                )}
             </div>
+            
             <Dialog open={openMenu} onClose={handleClose}>
                 <form onSubmit={handleAddPin}>
                     <DialogTitle>Add New Pin</DialogTitle>
                     <DialogContent>
                         <TextField label="X" name="X" margin="normal" disabled value={pinData.X} onChange={handleChange} style={{width: 80}} />
                         <TextField label="Y" name="Y" margin="normal" disabled value={pinData.Y} onChange={handleChange} style={{width: 80, marginLeft: 20}} />
-                        <TextField label="Title" name="Title" margin="normal" value={pinData.Title} onChange={handleChange} style={{width: 350, marginLeft: 20}} />
-                        <TextField label="Description" name="Descr" margin="normal" value={pinData.Descr} onChange={handleChange} fullWidth multiline rows={2}/>
+                        <TextField label="Title" name="Title" margin="normal" required value={pinData.Title} onChange={handleChange} style={{width: 350, marginLeft: 20}} />
+                        <TextField label="Description" name="Descr" margin="normal" required value={pinData.Descr} onChange={handleChange} fullWidth multiline rows={2}/>
+
+                        <div className="add-photo-btn">
+                            <input type="file" accept="image/*" id="add-photo" name="Img" onChange={handlePhotoChange} style={{ display: 'none' }}/>
+                            <label htmlFor="add-photo">
+                                <Button variant="contained" color="primary" component="span">Upload Picture</Button>
+                            </label>
+                            <p>Selected File: {pinData.Img ? pinData.Img : 'none'}</p>
+                        </div>
+                        
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={handleClose} sx={{backgroundColor: 'red', color: 'white', '&:hover': {backgroundColor: 'darkred'}}}>Close</Button>

@@ -28,18 +28,18 @@ function Navbar() {
             ) : (
                 <p>Timisoara Zoological Garden</p>
             )}
-            <div className="nav-buttons">
-                <button className="home-btn" onClick={homeClick}>
+            <div className="navbar-buttons">
+                <button className="navbar-buttons-element home-btn" onClick={homeClick}>
                     Home
                 </button>
-                <button className="animals-btn" onClick={animalsClick}>
+                <button className="navbar-buttons-element animals-btn" onClick={animalsClick}>
                     Our Animals
                 </button>
-                <button className="about-btn" onClick={aboutClick}>
+                <button className="navbar-buttons-element about-btn" onClick={aboutClick}>
                     About Us
                 </button>
                 {auth?.Username && (
-                    <button className="logout-btn" onClick={logoutClick}>
+                    <button className="navbar-buttons-element logout-btn" onClick={logoutClick}>
                         Log Out
                     </button>
                 )}

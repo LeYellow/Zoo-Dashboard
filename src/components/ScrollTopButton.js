@@ -29,8 +29,7 @@ function ScrollTopButton () {
         <div>
             {backToTop && (
                 <Tooltip title="Back To Top" arrow placement="top" size="md" variant="soft">
-                    <KeyboardArrowUpIcon className="scroll-top" onClick={scrollUp}
-                    />
+                    <KeyboardArrowUpIcon className="scroll-top" onClick={scrollUp} style={{ fontSize: 40 }}/>
                 </Tooltip>
             )}
         </div>

@@ -25,6 +25,9 @@ function Footer() {
     const newsClick = () => {
         navigate('/news');
     };
+    const welcomeClick = () => {
+        navigate('/');
+    };
     
     return(
         <div className="footer-body">
@@ -52,6 +55,7 @@ function Footer() {
                 <h6 onClick={aboutClick}>About Us</h6>
                 <h6 onClick={mapClick}>Map</h6>
                 <h6 onClick={newsClick}>News</h6>
+                <h6 onClick={welcomeClick}>Start Page</h6>
             </div>
             <div className="col3">
                 <h1>Contact</h1>

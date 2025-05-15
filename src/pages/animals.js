@@ -23,6 +23,7 @@ function AnimalsPage() {
     const [selectedID, setselectedID] = useState(null);
     const [notes, setNotes] = useState([]);
     const [data, setData] = useState([]);
+    const [animalImage, setAnimalImage] = useState('');
     const [formData, setFormData] = useState({
         Name: '',
         Species: '',
@@ -35,6 +36,7 @@ function AnimalsPage() {
         Status: '',
         About: '',
         Age: '',
+        Img: '',
     });
     const columnsTicket = [
         ...(auth?.Username ? [{ field: 'ID', headerName: 'ID', maxWidth: 20, headerAlign: 'center', headerClassName: 'TableHeader' }] : []),
@@ -127,6 +129,15 @@ function AnimalsPage() {
         .catch(error => {
             console.error('There was an error adding the animal!', error);
         });
+
+        const imageData = new FormData();
+        imageData.append('image', animalImage);
+        await axios.post("http://localhost/ZooDashboard/zoo_dashboard/src/backend/addAnimalImage.php", imageData, {
+            headers: {
+                'Content-Type' : 'multipart/form-data'
+            }
+        });
+
         console.log(formData);
     };
 
@@ -152,6 +163,13 @@ function AnimalsPage() {
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
+
+    const handlePhotoChange = (e) => {
+		if (e.target.files.length > 0) {
+            setFormData({ ...formData, [e.target.name]: e.target.files[0].name })
+		}
+        setAnimalImage(e.target.files[0]);
+	};
       
     const handleClose = () => {
         setOpenMenu(false);
@@ -247,6 +265,7 @@ function AnimalsPage() {
     
     useEffect(() => {
         fetchTickets();
+        window.scrollTo({top: 0});
     }, []);
 
     //-----------Row click & description
@@ -284,7 +303,7 @@ function AnimalsPage() {
                         <div className="animal-desc-table">
                             <div className="animal-image">
                                 {notes.Img ? (
-                                    <img src={`http://localhost/ZooDashboard/images/Animals/${notes.Img}`} alt="animal-pic"/>
+                                    <img src={`http://localhost/ZooDashboard/extResources/Animals/${notes.Img}`} alt="animal-pic"/>
                                 ) : (
                                     <img src={aniPic} alt="animal-pic"/>
                                 )}
@@ -375,7 +394,7 @@ function AnimalsPage() {
                         </FormControl>
                         <FormControl margin="normal" style={{width: 260, marginLeft: 30}}>
                             <InputLabel>Status</InputLabel>
-                            <Select name="Health Status" value={isEditMode ? editData.Status : formData.Status} onChange={isEditMode ? handleEditChange : handleChange}>
+                            <Select name="Status" value={isEditMode ? editData.Status : formData.Status} onChange={isEditMode ? handleEditChange : handleChange}>
                                 <MenuItem value={1}>Sick</MenuItem>
                                 <MenuItem value={0}>Healthy</MenuItem>
                             </Select>
@@ -384,6 +403,15 @@ function AnimalsPage() {
                         <TextField label="Unique Traits" name="Characteristics" fullWidth type="normal" margin="normal" onChange={isEditMode ? handleEditChange : handleChange} value={isEditMode ? editData.Characteristics : formData.Characteristics} multiline rows={2}/>
                         <TextField label="About" name="About" fullWidth margin="normal" onChange={isEditMode ? handleEditChange : handleChange} value={isEditMode ? editData.About : formData.About}  multiline rows={4}/>
                     </DialogContent>
+
+                    <div className="add-photo-btn" style={{ marginLeft: 25 }}>
+                        <input type="file" accept="image/*" id="add-photo" name="Img" onChange={handlePhotoChange} style={{ display: 'none' }}/>
+                        <label htmlFor="add-photo">
+                            <Button variant="contained" color="primary" component="span">Upload Picture</Button>
+                        </label>
+                        <p>Selected File: {formData.Img ? formData.Img : 'none'}</p>
+                    </div>
+
                     <DialogActions>
                         <Button onClick={handleClose} sx={{backgroundColor: 'red', color: 'white', '&:hover': {backgroundColor: 'darkred'}}}>Close</Button>
                         <Button onClick={isEditMode ? handleEditEntry : handleAddEntry} type="submit" sx={{ backgroundColor: 'green', color: "white", '&:hover': {backgroundColor: 'darkgreen'}}}>{isEditMode ? 'Edit' : 'Submit'}</Button>

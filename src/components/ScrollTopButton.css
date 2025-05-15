@@ -1,10 +1,9 @@
 .scroll-top {
     position: fixed;
-    bottom: 40px;
-    right: 40px;
+    bottom: 20px;
+    right: 20px;
     border-radius: 100px;
     border: solid 2px darkgreen;
-    font-size: 40px;
     color: bisque;
     background-color: green;
     cursor: pointer;

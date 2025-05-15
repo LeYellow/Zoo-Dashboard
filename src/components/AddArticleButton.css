@@ -1,0 +1,26 @@
+.add-btn {
+    width: 100%;
+    margin-top: 30px;
+    padding-block: 10px;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.add-btn:hover {
+    color: white;
+    background-color: grey;
+}
+
+.add-file-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.add-file-btn p {
+    margin: 0px;
+    margin-left: 20px;
+}

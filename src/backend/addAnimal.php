@@ -21,6 +21,7 @@ $Food=$animalData['Food'];
 $Status=$animalData['Status'];
 $About=$animalData['About'];
 $Age=$animalData['Age'];
+$Img=$animalData['Img'];
 
 $sql = "INSERT INTO Animals (Name, Species, Breed, Enclosure, WasFeed, Responsible) VALUES (?, ?, ?, ?, ?, ?)";
 $params = array($Name, $Species, $Breed, $Enclosure, $WasFeed, $Responsible); 
@@ -29,8 +30,8 @@ if (!$stmt) {
     die(print_r(sqlsrv_errors(), true));
 }
 
-$sql = "INSERT INTO Descriptions (Name, Characteristics, Food, Status, About, Age) VALUES (?, ?, ?, ?, ?, ?)";
-$params = array($Name, $Characteristics, $Food, $Status, $About, $Age);
+$sql = "INSERT INTO Descriptions (Name, Characteristics, Food, Status, About, Age, Img) VALUES (?, ?, ?, ?, ?, ?, ?)";
+$params = array($Name, $Characteristics, $Food, $Status, $About, $Age, $Img);
 $stmt = sqlsrv_query($conn, $sql, $params);
 if (!$stmt) {
     die(print_r(sqlsrv_errors(), true));

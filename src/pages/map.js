@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import "./map.css";
 import "./shared.css";
 import Navbar from '../components/Navbar';
@@ -14,6 +14,10 @@ function MapPage() {
         console.log("pin id from map", id);    //debug
         setSelectedPin(id);
     }
+
+    useEffect(() => {
+        window.scrollTo({top: 0});
+    }, []);
 
     return (
         <div className="page">

@@ -2,12 +2,10 @@
 
 .page {
     min-height: 100vh;
-    width: 100vw;
     background-color: #fffcde;
 }
 
 .banner {
-    width: 100vw;
     height: 800px;
     display: flex;
     align-items: center;
@@ -41,6 +39,3 @@
     }
 }
 
-::-webkit-scrollbar {
-    display: none;
-}

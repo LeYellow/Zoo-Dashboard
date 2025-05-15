@@ -30,13 +30,13 @@
     color: white;
 }
 
-@media (max-width: 1110px) {
+@media (max-width: 1130px) {
     .navbar-body p {
         display: none;
     }
 }
 
-.nav-buttons button {
+.navbar-buttons-element {
     height: 50px;
     padding-inline: 20px;
     font-family: 'Varela Round';
@@ -48,14 +48,13 @@
     transition-duration: 0.3s;
 }
 
-@media (max-width: 1110px) {
-    .nav-buttons {
-        transition: 0.2ms;
+@media (max-width: 1130px) {
+    .navbar-buttons {
         margin-left: auto;
     }
 }
 
-.nav-buttons button:hover {
+.navbar-buttons-element:hover {
     background-color: #FFD700;
     border-color: #FFD700;
     color: black;
