@@ -80,9 +80,13 @@
     margin-left: 20px;
     font-size: 15px;
     font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .col3 a:link, a:visited {
+    width: fit-content;
     margin-block: 2px;
     margin-left: 20px;
     font-size: 15px;
@@ -90,6 +94,9 @@
     text-decoration: none;
     color: black;
     transition: 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .col3 a:hover {

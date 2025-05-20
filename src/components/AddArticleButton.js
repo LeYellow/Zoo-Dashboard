@@ -38,7 +38,7 @@ function AddArticleButton () {
         });
 
         const textData = new FormData();
-        imageData.append('image', artText);
+        textData.append('file', artText);
         await axios.post("http://localhost/ZooDashboard/zoo_dashboard/src/backend/addNewsArticleText.php", textData, {
             headers: {
                 'Content-Type' : 'multipart/form-data'

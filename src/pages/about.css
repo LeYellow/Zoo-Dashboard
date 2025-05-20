@@ -2,6 +2,81 @@
     background: linear-gradient(0deg, #fffcde 5%, transparent 50%), url('/src/resources/banner2.jpg') no-repeat top center;
 }
 
+.contact {
+    padding-top: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+@media (max-width: 1200px) {
+    .contact {
+        transition: 0.4s;
+        flex-direction: column;
+    }
+
+    .contact-map {
+        width: 100%;
+    }
+
+    .contact-text {
+        margin-block: 30px;
+    }
+}
+
+.contact-map {
+    background-color: white;
+    height: 350px;
+}
+
+@media (min-width: 1200px) {
+    .contact-map {
+        width: 50%;
+    }
+}
+
+.contact-text {
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-text h3 {
+    font-size: 50px;
+    margin-inline: 20px;
+    margin-block: 0px;
+}
+
+.contact-details {
+    height: fit-content;
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.contact-details p{
+    font-size: 20px;
+    color: gray;
+    margin: 0%;
+}
+
+.contact-details h2{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 30px;
+    margin: 0%;
+}
+
+.divider {
+    font-size: 50px;
+    text-align: center;
+    margin: 0px;
+    padding-top: 20px;
+}
+
 .text-block {
     padding-top: 20px;
     margin-bottom: 100px;

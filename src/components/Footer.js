@@ -60,8 +60,8 @@ function Footer() {
             <div className="col3">
                 <h1>Contact</h1>
                 <h5><CallIcon/> 0356004152</h5>
-                <h5><MailIcon/> zooTimisoara@gmail.com</h5>
-                <a href="https://www.google.ro/maps/place/Timișoara+Zoo/@45.7812742,21.2669931,234m/data=!3m1!1e3!4m14!1m7!3m6!1s0x4745671c762e0969:0x4f2b7c28aeecc23b!2sTimișoara+Zoo!8m2!3d45.780901!4d21.266995!16s%2Fm%2F0c00wk1!3m5!1s0x4745671c762e0969:0x4f2b7c28aeecc23b!8m2!3d45.780901!4d21.266995!16s%2Fm%2F0c00wk1?entry=ttu&g_ep=EgoyMDI1MDIxNy4wIKXMDSoJLDEwMjExNDU1SAFQAw%3D%3D">
+                <h5><MailIcon/> ZooTimisoara@gmail.com</h5>
+                <a href="https://maps.app.goo.gl/hytATxoV9uvW5euC7" target="_blank">
                     <PlaceIcon/> Strada Avram Imbroane
                 </a>
             </div>

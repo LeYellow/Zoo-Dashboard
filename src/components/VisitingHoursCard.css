@@ -21,3 +21,34 @@
     margin-top: auto;
     margin-bottom: auto;
 }
+
+.hours h2 {
+    position: relative;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 15px;
+    margin-left: auto;
+    text-align: right;
+    font-weight: 500;
+    font-size: 15px;
+    cursor: pointer;
+    color: rgb(71, 129, 236);
+    transition: 0.3s;
+    width: fit-content;
+}
+
+.hours h2:hover {
+    color: blue;
+}
+
+.hoursMenu {
+    width: 240px;
+    padding-inline: 30px;
+    padding-block: 20px;
+}
+
+.hoursList {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
