@@ -1,4 +1,4 @@
-.add-btn {
+.delete-btn {
     width: 100%;
     margin-top: 30px;
     padding-block: 10px;
@@ -7,22 +7,23 @@
     cursor: pointer;
     transition: 0.3s;
     color: white;
-    background-color: #0e4b18;
+    background-color: red;
+    border: none;
 }
 
-.add-btn:hover {
+.delete-btn:hover {
     color: grey;
-    background-color: #123524;
+    background-color: darkred;
 }
 
-.add-file-btn {
+.delete-file-btn {
     display: flex;
     flex-direction: row;
     align-items: center;
     margin-top: 10px;
 }
 
-.add-file-btn p {
+.delete-file-btn p {
     margin: 0px;
     margin-left: 20px;
 }

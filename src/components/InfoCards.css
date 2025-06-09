@@ -1,0 +1,110 @@
+.card-body {
+    display: flex;
+    flex-direction: column;
+    max-width: 270px;
+    width: 100%;
+    height: 160px;
+    border-left: 2px solid gray;
+    border-bottom: 2px solid gray;
+    border-radius: 20px;
+    background-color: white;
+    text-align: center;
+}
+
+.card-title {
+    margin: 0%;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 270px;
+}
+
+.card-redirect {
+    position: relative;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    margin-right: 15px;
+    margin-left: auto;
+    text-align: right;
+    font-weight: 500;
+    font-size: 15px;
+    cursor: pointer;
+    color: rgb(71, 129, 236);
+    transition: 0.3s;
+    width: fit-content;
+}
+
+.card-redirect:hover {
+    color: blue;
+}
+
+/*Timetable Card*/
+.current-day p{
+    margin: 0%;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.hoursMenu {
+    width: 240px;
+    padding-inline: 30px;
+    padding-block: 20px;
+    border: 10px solid #EFE3C2;
+}
+
+.hoursList {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+/*Ticket Prices Card*/
+
+.tickets-ex p {
+    font-weight: bold;
+    margin: 0%;
+    font-size: 25px;
+}
+
+.ticketMenu {
+    width: 500px;
+    padding-inline: 30px;
+    padding-block: 20px;
+    border: 10px solid #EFE3C2;
+}
+
+.ticketList {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 20px;
+}
+
+.ticketTier{
+    font-weight: bold;
+}
+
+.dotLine {
+    flex-grow: 1;
+    border-bottom: 2px dotted black;
+    margin: 0 15px;
+}
+
+/*ZooMap Card & Location Card*/
+.card-content svg{
+    height: 80px;
+    width: auto;
+}

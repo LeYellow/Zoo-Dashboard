@@ -1,29 +1,32 @@
 .animals-banner {
-    background: linear-gradient(0deg, #fffcde 5%, transparent 50%), url('/src/resources/banner2.jpg') no-repeat top center;
+    background: linear-gradient(0deg, #3E7B27 5%, transparent 50%), url('/src/resources/banner2.jpg') no-repeat top center;
 }
 
 .animals-text {
     margin-top: 0;
     margin-inline: auto;
-    padding-top: 40px;
+    padding-block: 40px;
     width: 700px;
     text-align: center;
+    font-family: 'Varela Round';
+    font-size: 25px;
 }
 
 .animal-list {
     margin-bottom: 30px;
     margin-inline: auto;
-    height: 400px;
+    height: 371px;
     max-width: 1000px;
     background-color: white;
 }
 
 .animal-desc {
     margin-inline: auto;
-    min-height: 400px;
+    min-height: 500px;
     max-width: 1000px;
     background-color: white;
     border-radius: 15px;
+    font-family: 'Inter';
 }
 
 .animal-desc p {
@@ -31,9 +34,10 @@
 }
 
 .animal-desc h6 {
+    margin: 0%;
     text-align: center;
     vertical-align: middle;
-    line-height: 400px;
+    line-height: 500px;
     font-style: italic;
     font-size: larger;
     color: gray;
@@ -48,7 +52,7 @@
 
 .animal-desc img {
     height: 400px;
-    max-width: 300px;
+    width: 300px;
     border-radius: 20px;
 }
 
@@ -72,7 +76,7 @@
 .profile-grid {
     display: grid;
     grid-template-columns: repeat(2, 2fr);
-    column-gap: auto;
+    column-gap: 20px;
     column-width: 150px;
     row-gap: 40px;
     padding-block: 20px;
@@ -87,6 +91,10 @@
     list-style-type: none;
     height: fit-content;
     margin: 0px;
+}
+
+.animal-text p {
+    padding-inline: 20px;
 }
 
 .profile-icon svg {

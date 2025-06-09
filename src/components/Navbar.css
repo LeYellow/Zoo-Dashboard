@@ -28,11 +28,22 @@
     font-family: 'Varela Round';
     font-size: 40px;
     color: white;
+    text-shadow: 2px 2px 4px #000000;
 }
 
 @media (max-width: 1130px) {
     .navbar-body p {
         display: none;
+    }
+}
+
+.navbar-buttons {
+    margin-right: 30px;
+}
+
+@media (max-width: 1130px) {
+    .navbar-buttons {
+        margin-left: auto;
     }
 }
 
@@ -42,23 +53,24 @@
     font-family: 'Varela Round';
     font-size: 20px;
     font-weight: bold;
-    background-color: #228B22;
-    border-color: #228B22;
+    background-color: #0e4b18;
+    border: none;
+    box-shadow: 5px 5px #123524;
     color: white;
-    transition-duration: 0.3s;
-}
-
-@media (max-width: 1130px) {
-    .navbar-buttons {
-        margin-left: auto;
-    }
+    transition-duration: 0.2s;
 }
 
 .navbar-buttons-element:hover {
-    background-color: #FFD700;
-    border-color: #FFD700;
-    color: black;
+    background-color: #123524;
+    border-color: #123524;
     cursor: pointer;
+    box-shadow: 5px 5px black;
+}
+
+.navbar-buttons-element:active {
+    transform: translateY(5px);
+    box-shadow: none;
+    transition: 0.14s;
 }
 
 .home-btn {
@@ -66,13 +78,16 @@
     border-bottom-left-radius: 10px;
 }
 
+.animals-btn {
+    border-inline: solid 1px black;
+}
+
 .about-btn {
-    margin-right: 30px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
 
 .logout-btn {
     border-radius: 10px;
-    margin-right: 30px;
+    margin-inline: 30px;
 }

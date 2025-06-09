@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+.location-banner {
+    height: 500px;
+    background: linear-gradient(0deg, #3E7B27 1%, transparent 10%),
+                url('/src/resources/banner_about.jpg') no-repeat top center;
+    background-size: cover;
+}
+
+.location-content {
+    margin-top: -100px;
+}
+
+.location-map {
+    width: 100%;
+    background-color: white;
+    height: 350px;
+    border-radius: 10px;
+}
+
+.divider {
+    font-size: 50px;
+    font-family: 'Varela Round';
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+p {
+    font-family: 'Inter';
+}
+
+.text-block-location {
+    max-width: 800px;
+    margin-inline: auto;
+    margin-block: 0px;
+    text-align: justify;
+    font-size: 20px;
+}
+
+.transport-line {
+    max-width: 400px;
+    margin-inline: auto;
+    font-size: 20px;
+}
+
+.contact-block {
+    padding-top: 30px;
+    max-width: fit-content;
+    display: flex;
+    flex-direction: row;
+    margin-inline: auto;
+    align-content: center;
+    align-items: center;
+}
+
+@media (max-width: 860px) {
+    .contact-block {
+        transition: 0.4s;
+        flex-direction: column;
+    }
+}
+
+.contact-block h3 {
+    font-size: 50px;
+    margin-inline: 30px;
+    margin-block: 0px;
+}
+
+.contact-details {
+    height: fit-content;
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.contact-details p{
+    font-size: 20px;
+    color: gray;
+    margin: 0%;
+}
+
+.contact-details h2{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 30px;
+    margin: 0%;
+}

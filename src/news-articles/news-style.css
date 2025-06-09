@@ -1,13 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 .news-art-page {
     min-height: 100vh;
-    background-color: #fffcde;
+    background-color: #3E7B27;
 }
 
 .news-art-content {
     padding-top: 150px;
     margin-inline: 15%;
     padding-bottom: 5%;
-    background-color: white;
+    background-color: #EFE3C2;
     transition: 0.4s;
 }
 
@@ -26,23 +29,61 @@
     margin-bottom: 50px;
 }
 
+.news-art-header-btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
 .back-btn {
     display: flex;
     align-items: center;
+    gap: 5px;
     padding: 5px;
     border-radius: 5px;
-    font-size: 15px;
-    background-color: lightgray;
+    color: white;
+    font-size: 18px;
+    background-color: #0e4b18;
+    border: none;
+    box-shadow: 5px 5px #123524;
     cursor: pointer;
 }
 
 .back-btn:hover {
-    background-color: gray;
+    background-color: #123524;
     transition: 0.3s;
+}
+
+.back-btn:active {
+    transform: translateY(5px);
+    box-shadow: none;
+    transition: 0.14s;
+}
+
+.admin-btns {
+    display: flex;
+    flex-direction: row;
+}
+
+.addPhoto, .addText{
+    cursor: pointer;
+    padding-block: 10px;
+    padding-inline: 15px;
+    margin-top: -5px;
+    color: #EFE3C2;
+    background-color: #173518;
+}
+
+.addPhoto:hover, .addText:hover {
+    color: #173518;
+    background-color: #EFE3C2;
+    transition: 0.5s;
 }
 
 .news-art-header h1 {
     font-size: 50px;
+    font-family: 'Varela Round';
 }
 
 .news-art-img {
@@ -65,8 +106,28 @@
     object-fit: cover;
 }
 
+.art-subtitle {
+    font-size: 25px;
+    font-family: 'Inter';
+}
+
 .news-art-text {
     margin-inline: 16%;
     text-align: justify;
     white-space: pre-wrap;
+    font-family: 'Inter';
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.add-file-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 20px;
+}
+
+.add-file-btn p {
+    margin: 0px;
+    margin-left: 20px;
 }

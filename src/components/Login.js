@@ -1,7 +1,6 @@
 import React, { useState, useContext } from 'react';
 import "./Login.css";
 import { Dialog, DialogContent, DialogActions, Button, TextField, DialogTitle, FormControl, InputLabel, OutlinedInput } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
 import AuthContext from '../context/AuthProvider';
 import axios from 'axios';
 import Visibility from '@mui/icons-material/Visibility';
@@ -11,7 +10,6 @@ import IconButton from '@mui/material/IconButton';
 
 function Login () {
     const { setAuth } = useContext(AuthContext);
-    const navigate = useNavigate();
     const [openMenu, setOpenMenu] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     const [loginError, setLoginError] = useState('');
@@ -32,10 +30,9 @@ function Login () {
             console.log(response.data);   //debug
             setLoginError('');
             setLoginSucces("Login succesful, please wait");
-            setAuth(userData);
             setTimeout(() => {
-                handleShowMenu(); 
-                navigate('/home');
+                setAuth(userData);
+                handleShowMenu();
             }, 1500);
         }
         catch(error) {
@@ -64,9 +61,9 @@ function Login () {
 
     return (
         <div>
-            <button onClick={handleLoginClick} className="login-btn">
+            <h6 onClick={handleLoginClick} className="login-btn">
                 Zookeeper mode
-            </button>
+            </h6>
             
             <Dialog open={openMenu} onClose={handleShowMenu}>
                 <form onSubmit={handleUserLogin}>

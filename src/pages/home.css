@@ -1,13 +1,56 @@
-.home-banner {
-    background: linear-gradient(0deg, #fffcde 5%, transparent 50%), url('/src/resources/banner2.jpg') no-repeat top center;
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+.home-page {
+    min-height: 100vh;
+    background-color: #3E7B27;
 }
 
-.home-welcome {
-    margin-block: 50px;
+.home-banner {
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    justify-content: flex-start;
+    background: linear-gradient(80deg, #3E7B27 30%, transparent 40%),
+                linear-gradient(0deg, #3E7B27 1%, transparent 10%), 
+                url('/src/resources/welcome_bg.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.home-banner-content {
+    width: 30vw;
+    padding-left: 1%;
+    text-align: center;
+    color: white;
+}
+
+.home-banner-content h1{
+    font-family: 'Varela Round';
+    font-size: 60px;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.home-content {
+    margin-inline: 15%;
+    margin-top: -200px;
+    margin-bottom: 5%;
+    padding-inline: 30px;
+    padding-bottom: 5%;
+    background-color: #EFE3C2;
+    border-radius: 50px;
+}
+
+@media (max-width: 1300px) {
+    .home-content {
+        transition: 0.4s;
+        border-radius: 0px;
+        margin-inline: 0px;
+    }
 }
 
 .home-welcome h1 {
-    margin-block: 0px;
+    margin-block: 50px;
     text-align: center;
     font-size: 50px;
     font-family: 'Varela Round';
@@ -16,29 +59,36 @@
 .home-welcome p {
     margin-block: 0px;
     font-size: 20px;
-    text-align: center;
+    font-weight: 500;
+    font-family: 'Inter';
+    text-align: justify;
     margin-inline: 30px;
 }
 
-
 .infoCards {
     padding-top: 30px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    max-width: fit-content;
-    margin-inline: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
-@media (max-width: 900px) {
+.cards-group {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+@media (max-width: 1170px) {
     .infoCards {
-        grid-template-columns: 100%;
-        grid-template-areas: "a" "b" "c";
-        row-gap: 30px;
-        justify-self: center;
+        flex-direction: column;
+        gap: 20px;
     }
 }
 
+.newsCards {
+    margin-inline: 30px;
+}
 
 .newsCards-header {
     margin-top: 30px;
@@ -52,7 +102,7 @@
     align-self: flex-start;
     margin: 0%;
     margin-right: auto;
-    font-size: 30px;
+    font-size: 35px;
     font-weight: 700;
     font-family: 'Varela Round';
 }
@@ -64,6 +114,7 @@
     padding-block: 6px;
     padding-inline: 10px;
     border-radius: 5px;
+    font-size: 15px;
     border: none;
     transition: 0.3s;
 }

@@ -65,7 +65,7 @@ function AnimalsPage() {
     ]
 
     //-----------Fetch Animals
-    const fetchTickets = async () => {
+    const fetchAnimals = async () => {
         try {
             const response = await axios.get("http://localhost/ZooDashboard/zoo_dashboard/src/backend/getAnimals.php")
             console.log(response);    //debug
@@ -83,7 +83,7 @@ function AnimalsPage() {
         }
     }
 
-    const fetchTicketNotes = async (ID) => {
+    const fetchAnimalsDescriptions = async (ID) => {
         try {
           const response = await axios.get(`http://localhost/ZooDashboard/zoo_dashboard/src/backend/getDescription.php?ID=${ID}`);
           //console.log(response);    //debug
@@ -124,7 +124,7 @@ function AnimalsPage() {
         .then(response => {
             //console.log(response.data);   //debug
             handleClose();
-            fetchTickets();
+            fetchAnimals();
         })
         .catch(error => {
             console.error('There was an error adding the animal!', error);
@@ -166,8 +166,12 @@ function AnimalsPage() {
 
     const handlePhotoChange = (e) => {
 		if (e.target.files.length > 0) {
-            setFormData({ ...formData, [e.target.name]: e.target.files[0].name })
-		}
+            if(isEditMode) {
+                setEditData({ ...editData, [e.target.name]: e.target.files[0].name })
+            } else {
+                setFormData({ ...formData, [e.target.name]: e.target.files[0].name })
+            }
+        }
         setAnimalImage(e.target.files[0]);
 	};
       
@@ -191,6 +195,7 @@ function AnimalsPage() {
         Status: '',
         About: '',
         Age: '',
+        Img: '',
     });
 
     const handleEditEntry = async (event) => {
@@ -207,12 +212,22 @@ function AnimalsPage() {
         .then(response => {
             //console.log(response.data);     //debug
             handleClose();
-            fetchTickets();
+            fetchAnimals();
         })
         .catch(error => {
             console.error('There was an error editing the animal!', error);
         });
-        await fetchTicketNotes(editData.ID);
+
+        if(editData.Img) {
+            const imageData = new FormData();
+            imageData.append('image', animalImage);
+            await axios.post("http://localhost/ZooDashboard/zoo_dashboard/src/backend/addAnimalImage.php", imageData, {
+                headers: {
+                    'Content-Type' : 'multipart/form-data'
+                }
+            });
+        }
+        await fetchAnimalsDescriptions(editData.ID);
     }
 
     const handleEditClick = async (row) => {    //changes only if row clicked
@@ -249,7 +264,7 @@ function AnimalsPage() {
         });
         handleClose();
         setSelectedRow(null);
-        fetchTickets();
+        fetchAnimals();
     }
     
     const handleDeleteClick = (ID) => {
@@ -260,18 +275,18 @@ function AnimalsPage() {
 
     //-----------Misc
     const handleFeedClick= async () => {
-        axios.put(`http://localhost/ZooDashboard/zoo_dashboard/src/backend/feedAnimal.php`, { ID: selectedRow.ID}).then(fetchTickets);
+        axios.put(`http://localhost/ZooDashboard/zoo_dashboard/src/backend/feedAnimal.php`, { ID: selectedRow.ID}).then(fetchAnimals);
     }
     
     useEffect(() => {
-        fetchTickets();
+        fetchAnimals();
         window.scrollTo({top: 0});
     }, []);
 
     //-----------Row click & description
     const handleRowClick = (params) => {
         setSelectedRow(params.row);
-        fetchTicketNotes(params.row.ID);
+        fetchAnimalsDescriptions(params.row.ID);
         console.log("Clicked row ", params.row.ID)  //debug
     };
 
@@ -280,7 +295,7 @@ function AnimalsPage() {
             <Navbar/>
             <div className="banner animals-banner"/>
             <div className="content">
-                <h2 className="animals-text">Here is our collection of animals, just click on one to see everything about him.</h2>
+                <h2 className="animals-text">Here is our collection of animals, just click on one animal to see everything about them.</h2>
                 <div className="animal-list">
                     <DataGrid
                         rows={data}
@@ -295,6 +310,12 @@ function AnimalsPage() {
                         onRowClick={handleRowClick}
                         localeText={{
                             noRowsLabel: "Loading data..." 
+                        }}
+                        hideFooterSelectedRowCount
+                        sx={{
+                            '& .MuiDataGrid-row.Mui-selected': {backgroundColor: '#3E7B27', color: 'white'},
+                            '& .MuiDataGrid-row.Mui-selected:hover': {backgroundColor: '#3E7B27'},
+                            '& .MuiDataGrid-cell:focus': {outline: 'none'}
                         }}
                     />
                 </div>
@@ -409,7 +430,7 @@ function AnimalsPage() {
                         <label htmlFor="add-photo">
                             <Button variant="contained" color="primary" component="span">Upload Picture</Button>
                         </label>
-                        <p>Selected File: {formData.Img ? formData.Img : 'none'}</p>
+                        <p>Selected Photo (2:3 ratio recommended): {isEditMode ? editData.Img || 'none' : formData.Img || 'none'}</p>
                     </div>
 
                     <DialogActions>
@@ -421,7 +442,7 @@ function AnimalsPage() {
 
             <Dialog open={openDelete} onClose={handleClose} >
                 <form>
-                <DialogTitle> Delete ticket </DialogTitle>
+                <DialogTitle> Delete Animal </DialogTitle>
                 <DialogContent>
                     <DialogContentText sx={{color:'black'}}> Are you sure you want to delete this entry? </DialogContentText>
                 </DialogContent>

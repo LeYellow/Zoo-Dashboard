@@ -1,12 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 .footer-body {
-    min-height: 200px;
+    min-height: 180px;
     width: 70%;
     padding-inline: 15%;
     padding-block: 30px;
-    background-color: green;
+    background-color: #0e4b18;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     transition: 0.4s;
+    font-family: 'Inter';
 }
 
 @media (max-width: 1200px) {
@@ -16,9 +19,7 @@
     }
 }
 
-.footer-body div {
-    padding-block: 20px;
-}
+
 
 .footer-body h1 {
     margin: 0px;
@@ -64,6 +65,7 @@
 
 .col1 img {
     margin-top: 0px;
+    margin-bottom: 20px;
     height: 70px;
     width: auto;
     border-radius: 35px;

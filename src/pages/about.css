@@ -1,93 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 .about-banner {
-    background: linear-gradient(0deg, #fffcde 5%, transparent 50%), url('/src/resources/banner2.jpg') no-repeat top center;
+    height: 500px;
+    background: linear-gradient(0deg, #3E7B27 1%, transparent 10%),
+                url('/src/resources/banner_about.jpg') no-repeat top center;
+    background-size: cover;
 }
 
-.contact {
-    padding-top: 30px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-@media (max-width: 1200px) {
-    .contact {
-        transition: 0.4s;
-        flex-direction: column;
-    }
-
-    .contact-map {
-        width: 100%;
-    }
-
-    .contact-text {
-        margin-block: 30px;
-    }
-}
-
-.contact-map {
-    background-color: white;
-    height: 350px;
-}
-
-@media (min-width: 1200px) {
-    .contact-map {
-        width: 50%;
-    }
-}
-
-.contact-text {
-    margin-inline: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.contact-text h3 {
-    font-size: 50px;
-    margin-inline: 20px;
-    margin-block: 0px;
-}
-
-.contact-details {
-    height: fit-content;
-    text-align: center;
-    padding: 20px;
-    background-color: white;
-    border-radius: 15px;
-}
-
-.contact-details p{
-    font-size: 20px;
-    color: gray;
-    margin: 0%;
-}
-
-.contact-details h2{
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 30px;
-    margin: 0%;
+.about-content {
+    margin-top: 0px;
 }
 
 .divider {
     font-size: 50px;
+    font-family: 'Varela Round';
     text-align: center;
     margin: 0px;
     padding-top: 20px;
 }
 
-.text-block {
+.text-block-about {
+    margin-inline: 4%;
     padding-top: 20px;
     margin-bottom: 100px;
+    text-align: justify;
+    font-size: 20px;
 }
 
 .text-block p{
     margin-top: 0px;
 }
 
+.text-block p, .timeline p {
+    font-family: 'Inter';
+}
+
 .timeline {
     position: relative;
+    width: fit-content;
+    margin-inline: auto;
+    font-size: 20px;
 }
 
 /*vertical line*/
@@ -95,7 +47,7 @@
     content: '';
     position: absolute;
     width: 6px;
-    background-color: black;
+    background-color: #537D5D;
     top: 0px;
     bottom: 30px;
     left: 7px;
@@ -114,8 +66,8 @@
     position: absolute;
     width: 10px;
     height: 10px;
-    background-color: white;
-    border: 5px solid black;
+    background-color: #D2D0A0;
+    border: 5px solid #73946B;
     left: -50px;
     top: 1px;
     border-radius: 50%;
@@ -129,7 +81,7 @@
     width: 5px;
     top: 5px;
     left: -30px;
-    border: medium solid black;
+    border: medium solid #73946B;
     border-width: 5px 15px 5px 0;
-    border-color: transparent black transparent transparent;
+    border-color: transparent #73946B transparent transparent;
 }

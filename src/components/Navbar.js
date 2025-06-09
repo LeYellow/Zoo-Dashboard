@@ -8,7 +8,7 @@ function Navbar() {
     const { auth, setAuth } = useContext(AuthContext);
     const navigate = useNavigate();
     const homeClick = () => {
-        navigate('/home');
+        navigate('/');
     };
     const animalsClick = () => {
         navigate('/animals');
@@ -24,7 +24,7 @@ function Navbar() {
         <div className="navbar-body" style={auth?.Username ? {backgroundColor: 'red'} : {}}>
             <img src={logo} alt="zoo" onClick={homeClick}/>
             {auth?.Username ? (
-                <p>Admin mode : {auth?.Username}</p>
+                <p>Keeper mode : {auth?.Username}</p>
             ) : (
                 <p>Timisoara Zoological Garden</p>
             )}

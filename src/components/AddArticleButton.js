@@ -16,9 +16,8 @@ function AddArticleButton () {
         Txt:'',
     });
     
-    const handleAddArt = async (event) => {
+    const handleAddArt = async () => {
         //console.log("add submit pressed");    //debug
-        event.preventDefault();
 
         await axios.post("http://localhost/ZooDashboard/zoo_dashboard/src/backend/addNewsArticle.php", artData)
         .then(response => {

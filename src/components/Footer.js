@@ -7,11 +7,12 @@ import upt from "../resources/upt.jpg";
 import CallIcon from '@mui/icons-material/Call';
 import MailIcon from '@mui/icons-material/Mail';
 import PlaceIcon from '@mui/icons-material/Place';
+import Login from "./Login";
 
 function Footer() {
     const navigate = useNavigate();
     const homeClick = () => {
-        navigate('/home');
+        navigate('/');
     };
     const animalsClick = () => {
         navigate('/animals');
@@ -24,9 +25,6 @@ function Footer() {
     };
     const newsClick = () => {
         navigate('/news');
-    };
-    const welcomeClick = () => {
-        navigate('/');
     };
     
     return(
@@ -55,13 +53,12 @@ function Footer() {
                 <h6 onClick={aboutClick}>About Us</h6>
                 <h6 onClick={mapClick}>Map</h6>
                 <h6 onClick={newsClick}>News</h6>
-                <h6 onClick={welcomeClick}>Start Page</h6>
             </div>
             <div className="col3">
                 <h1>Contact</h1>
                 <h5><CallIcon/> 0356004152</h5>
                 <h5><MailIcon/> ZooTimisoara@gmail.com</h5>
-                <a href="https://maps.app.goo.gl/hytATxoV9uvW5euC7" target="_blank">
+                <a href="https://maps.app.goo.gl/hytATxoV9uvW5euC7" target="_blank" rel="noreferrer">
                     <PlaceIcon/> Strada Avram Imbroane
                 </a>
             </div>
@@ -71,6 +68,7 @@ function Footer() {
                 <h6>Legal Notice</h6>
                 <h6>Privacy Policy</h6>
                 <h6>Terms and Conditions</h6>
+                <Login/>
             </div>
             <div className="col5">
                 <h1>Partners</h1>

@@ -2,7 +2,7 @@
 
 .page {
     min-height: 100vh;
-    background-color: #fffcde;
+    background-color: #3E7B27;
 }
 
 .banner {
@@ -20,21 +20,20 @@
 }
 
 .content {
+    min-height: 200px;
     margin-inline: 15vw;
     margin-top: -300px;
     margin-bottom: 5vh;
     padding-inline: 30px;
     padding-bottom: 5vh;
-    background-color: #fffcde;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
+    background-color: #EFE3C2;
+    border-radius: 50px;
 }
 
 @media (max-width: 1300px) {
     .content {
         transition: 0.4s;
-        border-top-left-radius: 0px;
-        border-top-right-radius: 0px;
+        border-radius: 0px;
         margin-inline: 0px;
     }
 }

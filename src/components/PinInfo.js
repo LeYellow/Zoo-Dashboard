@@ -35,14 +35,18 @@ function PinInfo({pinId}) {
     return (
         <div className="pin-note">
             {pinId ? (
-                <div>
-                    <b>{info.Title}</b>
-                    <p>{info.Descr}</p>
-                    {info.Img ? (
-                        <img src={`http://localhost/ZooDashboard/extResources/Pins/${info.Img}`} alt="place-pic"/>
-                    ) : (
-                        <img src={placePic} alt="place-pic"/>
-                    )}
+                <div className="pin-content">
+                    <div className="pin-photo">
+                        {info.Img ? (
+                            <img src={`http://localhost/ZooDashboard/extResources/Pins/${info.Img}`} alt="place-pic"/>
+                        ) : (
+                            <img src={placePic} alt="place-pic"/>
+                        )}
+                    </div>
+                    <div className="pin-text">
+                        <h2>{info.Title}</h2>
+                        <p>{info.Descr}</p>
+                    </div>
                 </div>
             ) : (
                 <h6>Please select a point of interest to see it's description</h6>

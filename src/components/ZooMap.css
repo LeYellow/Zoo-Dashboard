@@ -1,16 +1,15 @@
 .zoo-map {
-    padding-top: 30px;
     position: relative;
     width: fit-content;
     margin-inline: auto;
 }
 
 .zoo-map img{
-    max-width: 850px;
+    width: 850px;
     max-height: auto;
     z-index: 0;
     user-select: none;
-    border-radius: 10px;
+    border-radius: 20px;
 }
 
 .pin {
@@ -37,19 +36,20 @@
     cursor: pointer;
     padding-block: 10px;
     padding-inline: 15px;
-    margin-top: -5px;
-    color: bisque;
-    background-color: #173518;
+    margin-top: -4px;
+    color: #EFE3C2;
+    background-color: #0e4b18;
 }
 
 .pin-buttons:hover {
-    color: #173518;
-    background-color: bisque;
+    color: #123524;
+    background-color: #EFE3C2;
     transition: 0.5s;
 }
 
 .add-pin {
     border-bottom-left-radius: 5px;
+    margin-left: 20px;
 }
 
 .add-photo-btn {

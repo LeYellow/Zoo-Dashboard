@@ -3,13 +3,14 @@
     bottom: 20px;
     right: 20px;
     border-radius: 100px;
-    border: solid 2px darkgreen;
-    color: bisque;
-    background-color: green;
+    border: 1px solid #123524;
+    color: #EFE3C2;
+    background-color: #0e4b18;
     cursor: pointer;
-    transition: 0.3s;
+    box-shadow: 2px 2px #123524;
 }
 
 .scroll-top:hover {
-    background-color: darkgreen;
+    transition: 0.3s;
+    background-color: #123524;
 }

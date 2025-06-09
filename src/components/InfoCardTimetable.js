@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import "./VisitingHoursCard.css";
+import "./InfoCards.css";
 import { Dialog, DialogTitle } from '@mui/material';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import CloseIcon from '@mui/icons-material/Close';
 
-function VisitingHoursCard() {
+function TimetableCard() {
   const[hours, setHours] = useState({
     open_time: '',
     close_time: '',
@@ -57,10 +57,12 @@ function VisitingHoursCard() {
 
   return (
     <div>
-      <div className="hours">
-        <h1><AccessTimeIcon/> Visiting Hours</h1>
-        <p>{hours.open_time} - {hours.close_time}</p>
-        <h2 onClick={handleOpenMenu}>All days →</h2>
+      <div className="card-body">
+        <h2 className="card-title"><AccessTimeIcon/> Visiting Hours</h2>
+        <div className="card-content current-day">
+          <p>{hours.open_time} - {hours.close_time}</p>
+        </div>
+        <p className="card-redirect" onClick={handleOpenMenu}>All days →</p>
       </div>
 
       <Dialog open={openMenu} onClose={handleShowMenu}>
@@ -75,11 +77,11 @@ function VisitingHoursCard() {
                   <span>{s.open_time} - {s.close_time}</span>
               </div>
             ))}
-            <p style={{ color: "darkred", textAlign: "justify" }}>Closed on national holidays, check news for special occasions.</p>
+            <p style={{ color: "darkred", textAlign: "justify", fontWeight: 600 }}>Closed on national holidays, check news for special occasions.</p>
         </div>
       </Dialog>
     </div>
   );
 }
 
-export default VisitingHoursCard;
+export default TimetableCard;

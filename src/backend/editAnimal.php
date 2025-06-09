@@ -18,6 +18,7 @@ $Food=$animalData['Food'];
 $Status=$animalData['Status'];
 $About=$animalData['About'];
 $Age=$animalData['Age'];
+$Img=$animalData['Img'];
 
 $sql = "UPDATE Animals SET Name = ?, Species = ?, Breed = ?, Enclosure = ?, WasFeed = ?, Responsible = ? WHERE ID = ?";
 $params = array($Name, $Species, $Breed, $Enclosure, $WasFeed, $Responsible, $ID);
@@ -26,8 +27,8 @@ if (!$stmt) {
     die(print_r(sqlsrv_errors(), true));
 }
 
-$sql = "UPDATE Descriptions SET Characteristics = ?, Food = ?, Status = ?, About = ?, Age = ? WHERE ID = ?";
-$params = array($Characteristics, $Food, $Status, $About, $Age, $ID);
+$sql = "UPDATE Descriptions SET Characteristics = ?, Food = ?, Status = ?, About = ?, Age = ?, Img = ? WHERE ID = ?";
+$params = array($Characteristics, $Food, $Status, $About, $Age, $Img, $ID);
 $stmt = sqlsrv_query($conn, $sql, $params);
 if (!$stmt) {
     die(print_r(sqlsrv_errors(), true));

@@ -1,15 +1,47 @@
 .pin-note {
+    margin-top: 20px;
     margin-inline: auto;
-    padding-inline: 50px;
+    padding-inline: 20px;
     padding-block: 20px;
-    min-height: 100px;
-    width: 300px;
-    color: bisque;
-    background-color: #173518;
+    width: 810px;
+    height: 200px;
+    color: #EFE3C2;
+    background-color: #0e4b18;
     border-radius: 20px;
 }
 
-.pin-note img {
+.pin-note h6 {
+    padding: 0%;
+    margin: 0%;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 200px;
+    font-style: italic;
+    font-size: larger;
+    user-select: none;
+}
+
+.pin-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.pin-photo img {
     width: 300px;
     height: 200px;
+    border-radius: 10px;
+}
+
+.pin-text {
+    margin-left: 20px;
+    margin-block: auto;
+}
+
+.pin-text h2 {
+    margin: 0px;
+}
+
+.pin-text p {
+    font-size: 20px;
+    margin-bottom: 0px;
 }

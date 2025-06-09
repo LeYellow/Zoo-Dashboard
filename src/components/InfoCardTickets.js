@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Dialog, DialogTitle } from '@mui/material';
 import axios from 'axios';
-import "./TicketPricesCard.css";
+import "./InfoCards.css";
 import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
 import CloseIcon from '@mui/icons-material/Close';
 
@@ -39,14 +39,16 @@ function TicketPricesCard() {
 
     return (
         <div>
-            <div className="prices">
-                <h1><ConfirmationNumberIcon/> Ticket Prices</h1>
-                {tickets.slice(0, 2).map((ticket, index) => (
-                    <p key={index} className="ticketPreview">
-                    {ticket.tier} - {ticket.price} Lei
-                    </p>
-                ))}
-                <h2 onClick={handleOpenMenu}>All prices →</h2>
+            <div className="card-body">
+                <h2 className="card-title"><ConfirmationNumberIcon/> Ticket Prices</h2>
+                <div className="card-content tickets-ex">
+                    {tickets.slice(0, 2).map((ticket, index) => (
+                        <p key={index} className="ticketPreview">
+                        {ticket.tier} - {ticket.price} Lei
+                        </p>
+                    ))}
+                </div>
+                <p className='card-redirect' onClick={handleOpenMenu}>All prices →</p>
             </div>
 
             <Dialog open={open} onClose={handleCloseMenu}>
@@ -54,7 +56,7 @@ function TicketPricesCard() {
                     <div style={{ display: 'flex', justifyContent: 'flex-end'}}>
                         <CloseIcon onClick={handleCloseMenu} sx={{ cursor: 'pointer'}}/>
                     </div>
-                    <DialogTitle sx={{ textAlign: 'center', paddingBottom: 3, fontSize: 30, fontWeight: 'bold' }}>Prices</DialogTitle>
+                    <DialogTitle sx={{ textAlign: 'center', paddingBottom: 3, fontSize: 40, fontWeight: 'bold' }}>Prices</DialogTitle>
                     {tickets.map((ticket, index) => (
                         <div key={index} className="ticketList">
                             <span className="ticketTier">{ticket.tier}</span>
