@@ -11,7 +11,7 @@ function NewsCard({id, title, subtitle, date, img}) {
             <div className="news-photo">
                 <p>{date}</p>
                 {img ? (
-                    <img src={`http://localhost/ZooDashboard/extResources/News/${img}`} alt="front-pic"/>
+                    <img src={`http://localhost/ZooDashboard/extResources/NewsPhoto/${img}`} alt="front-pic"/>
                 ) : (
                     <img src={placePic} alt="news-pic"/>
                 )}

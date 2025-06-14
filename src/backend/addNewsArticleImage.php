@@ -4,7 +4,7 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, PATCH, DELETE");
 
-$target_dir = "../../../extResources/News/";
+$target_dir = "../../../extResources/NewsPhoto/";
 
 if(isset($_FILES["image"]) && $_FILES["image"]["error"] === UPLOAD_ERR_OK) {
     $target_file = $target_dir . basename($_FILES["image"]["name"]);

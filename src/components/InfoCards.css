@@ -43,6 +43,7 @@
     color: rgb(71, 129, 236);
     transition: 0.3s;
     width: fit-content;
+    font-weight: bold;
 }
 
 .card-redirect:hover {

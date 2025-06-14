@@ -34,6 +34,8 @@ function NewsTemplate() {
     const [isPhotoMode, setIsPhotoMode] = useState(false);
     const [artImage, setArtImage] = useState('');
     const [artText, setArtText] = useState('');
+    const [zoom, setZoom] = useState(false);
+    const handleZoom = () => setZoom((zoom) => !zoom);
 
     const addArticlePhoto = async() => {
         await axios.post(`http://localhost/ZooDashboard/zoo_dashboard/src/backend/addNewsArticleImgOrTxt.php?ID=${artID}`, artData)
@@ -96,18 +98,20 @@ function NewsTemplate() {
 
     const fetchText = (res) => {
         if(res.Txt) {
-            fetch(`/News/${res.Txt}`)
+            fetch(`http://localhost/ZooDashboard/zoo_dashboard/src/backend/getNewsText.php?file=${res.Txt}`)
             .then((response) => {
-                if(!response.ok) {
+                const contentType = response.headers.get("Content-Type");
+                if(!response.ok || !contentType?.includes("text/plain")) {
                     throw new Error("Failed to fetch content");
                 }
                 return response.text();
             })
             .then((text) => setArticleText(text))
             .catch((error) => {
-                console.error("err loading text: ", error);
+                console.error("Err loading text: ", error);
+                setArticleText("Content currently unavailable");
             });
-        } else setArticleText('This article has no text');
+        } else setArticleText("This article has no text");
     }
 
     const handlePhotoChange = (e) => {
@@ -176,7 +180,7 @@ function NewsTemplate() {
                 </div>
                 <div className="news-art-img">
                     {articleDetails.Img ? (
-                        <img src={`http://localhost/ZooDashboard/extResources/News/${articleDetails.Img}`} alt="article-pic"/>
+                        <img src={`http://localhost/ZooDashboard/extResources/NewsPhoto/${articleDetails.Img}`} alt="article-pic" onClick={handleZoom}/>
                     ) : (
                         <img src={placePic} alt="news-pic"/>
                     )}
@@ -214,6 +218,12 @@ function NewsTemplate() {
                         <Button type="submit" sx={{ backgroundColor: 'green', color: "white", '&:hover': {backgroundColor: 'darkgreen'}}}>Submit</Button>
                     </DialogActions>
                 </form>    
+            </Dialog>
+
+            <Dialog open={zoom} onClose={handleZoom} disableScrollLock>
+                <div className="photo-zoom">
+                    <img src={`http://localhost/ZooDashboard/extResources/News/${articleDetails.Img}`} alt="zoomed"/>
+                </div>
             </Dialog>
         </div>
     );

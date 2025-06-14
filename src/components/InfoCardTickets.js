@@ -51,7 +51,7 @@ function TicketPricesCard() {
                 <p className='card-redirect' onClick={handleOpenMenu}>All prices →</p>
             </div>
 
-            <Dialog open={open} onClose={handleCloseMenu}>
+            <Dialog open={open} onClose={handleCloseMenu} disableScrollLock>
                 <div className="ticketMenu">
                     <div style={{ display: 'flex', justifyContent: 'flex-end'}}>
                         <CloseIcon onClick={handleCloseMenu} sx={{ cursor: 'pointer'}}/>

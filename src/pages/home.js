@@ -76,7 +76,7 @@ function HomePage() {
                 </div>
                 <div className="newsCards">
                     <div className="newsCards-header">
-                        <h2>News</h2>
+                        <h2>Recent News</h2>
                         <button onClick={newsClick}>All News →</button>
                     </div>
                     <div className="newsCards-content">

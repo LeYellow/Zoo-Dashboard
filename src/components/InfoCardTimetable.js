@@ -65,7 +65,7 @@ function TimetableCard() {
         <p className="card-redirect" onClick={handleOpenMenu}>All days →</p>
       </div>
 
-      <Dialog open={openMenu} onClose={handleShowMenu}>
+      <Dialog open={openMenu} onClose={handleShowMenu} disableScrollLock>
         <div className="hoursMenu">
             <div style={{ display: 'flex', justifyContent: 'flex-end'}}>
                 <CloseIcon onClick={handleShowMenu} sx={{ cursor: 'pointer'}}/>
