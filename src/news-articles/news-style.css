@@ -131,12 +131,3 @@
     margin: 0px;
     margin-left: 20px;
 }
-
-.photo-zoom {
-  display: flex;
-}
-
-.photo-zoom img {
-    width: 100%;
-    height: auto;
-}

@@ -34,8 +34,6 @@ function NewsTemplate() {
     const [isPhotoMode, setIsPhotoMode] = useState(false);
     const [artImage, setArtImage] = useState('');
     const [artText, setArtText] = useState('');
-    const [zoom, setZoom] = useState(false);
-    const handleZoom = () => setZoom((zoom) => !zoom);
 
     const addArticlePhoto = async() => {
         await axios.post(`http://localhost/ZooDashboard/zoo_dashboard/src/backend/addNewsArticleImgOrTxt.php?ID=${artID}`, artData)
@@ -180,7 +178,7 @@ function NewsTemplate() {
                 </div>
                 <div className="news-art-img">
                     {articleDetails.Img ? (
-                        <img src={`http://localhost/ZooDashboard/extResources/NewsPhoto/${articleDetails.Img}`} alt="article-pic" onClick={handleZoom}/>
+                        <img src={`http://localhost/ZooDashboard/extResources/NewsPhoto/${articleDetails.Img}`} alt="article-pic"/>
                     ) : (
                         <img src={placePic} alt="news-pic"/>
                     )}
@@ -218,12 +216,6 @@ function NewsTemplate() {
                         <Button type="submit" sx={{ backgroundColor: 'green', color: "white", '&:hover': {backgroundColor: 'darkgreen'}}}>Submit</Button>
                     </DialogActions>
                 </form>    
-            </Dialog>
-
-            <Dialog open={zoom} onClose={handleZoom} disableScrollLock>
-                <div className="photo-zoom">
-                    <img src={`http://localhost/ZooDashboard/extResources/News/${articleDetails.Img}`} alt="zoomed"/>
-                </div>
             </Dialog>
         </div>
     );

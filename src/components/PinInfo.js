@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import "./PinInfo.css";
 import axios from 'axios';
+import { Dialog } from '@mui/material';
 import placePic from "../resources/ph-img-wide.png";
 
 function PinInfo({pinId}) {
     const[info, setInfo] = useState([]);
+    const [zoom, setZoom] = useState(false);
+    const handleZoom = () => setZoom((zoom) => !zoom);
 
     const fetchPinsInfo = async (ID) => {
         try {
@@ -38,7 +41,7 @@ function PinInfo({pinId}) {
                 <div className="pin-content">
                     <div className="pin-photo">
                         {info.Img ? (
-                            <img src={`http://localhost/ZooDashboard/extResources/Pins/${info.Img}`} alt="place-pic"/>
+                            <img src={`http://localhost/ZooDashboard/extResources/Pins/${info.Img}`} alt="place-pic" onClick={handleZoom}/>
                         ) : (
                             <img src={placePic} alt="place-pic"/>
                         )}
@@ -51,6 +54,12 @@ function PinInfo({pinId}) {
             ) : (
                 <h6>Please select a point of interest to see it's description</h6>
             )}
+            
+            <Dialog open={zoom} onClose={handleZoom} disableScrollLock>
+                <div className="photo-zoom">
+                    <img src={`http://localhost/ZooDashboard/extResources/Pins/${info.Img}`} alt="zoomed"/>
+                </div>
+            </Dialog>
         </div>
     );
 }

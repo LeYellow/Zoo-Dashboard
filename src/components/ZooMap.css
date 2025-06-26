@@ -6,7 +6,7 @@
 
 .zoo-map img{
     width: 850px;
-    max-height: auto;
+    min-height: 850px;
     z-index: 0;
     user-select: none;
     border-radius: 20px;

@@ -1,5 +1,5 @@
 .pin-note {
-    margin-top: 20px;
+    margin-bottom: 40px;
     margin-inline: auto;
     padding-inline: 20px;
     padding-block: 20px;
@@ -30,6 +30,15 @@
     width: 300px;
     height: 200px;
     border-radius: 10px;
+}
+
+.photo-zoom {
+  display: flex;
+}
+
+.photo-zoom img {
+    width: 100%;
+    height: auto;
 }
 
 .pin-text {

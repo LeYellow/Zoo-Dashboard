@@ -38,7 +38,7 @@ function AnimalsPage() {
         Age: '',
         Img: '',
     });
-    const columnsTicket = [
+    const columnsAnimals = [
         ...(auth?.Username ? [{ field: 'ID', headerName: 'ID', maxWidth: 20, headerAlign: 'center', headerClassName: 'TableHeader' }] : []),
         { field: 'Name', headerName: 'Name', minWidth: 80, flex: 1, headerAlign: 'center', headerClassName: 'TableHeader'  },
         { field: 'Species', headerName: 'Species', minWidth: 80, flex: 1, headerAlign: 'center', headerClassName: 'TableHeader'  },
@@ -244,6 +244,7 @@ function AnimalsPage() {
             Status: notes.Status === "Healthy" ? 1 : 0,
             About: notes.About,
             Age: notes.Age,
+            Img: notes.Img
         });
         setIsEditMode(true);
         setOpenMenu(true);
@@ -299,7 +300,7 @@ function AnimalsPage() {
                 <div className="animal-list">
                     <DataGrid
                         rows={data}
-                        columns={columnsTicket}
+                        columns={columnsAnimals}
                         getRowId={(row) => row.ID}
                         initialState={{
                             pagination: {

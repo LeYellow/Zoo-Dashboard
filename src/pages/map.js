@@ -6,6 +6,7 @@ import Footer from '../components/Footer';
 import ScrollTopButton from "../components/ScrollTopButton";
 import ZooMap from '../components/ZooMap';
 import PinInfo from '../components/PinInfo';
+import ZooMapLegend from '../components/ZooMapLegend';
 
 function MapPage() {
     const [selectedPin, setSelectedPin] = useState(null);
@@ -26,9 +27,10 @@ function MapPage() {
                     <h1>Zoo Map</h1>
                 </div>
                 <div className="content zooMap-content">
-                    <h2 className="map-text">First time at our zoo? Here is a map with every sanctuary an point of interest. Just click on a pin.</h2>
-                    <ZooMap onPinClick={extractPinID}/>
+                    <h2 className="map-text">First time at our zoo? Here is a map with every sanctuary and point of interest. Just click on a pin.</h2>
                     <PinInfo pinId={selectedPin}/>
+                    <ZooMap onPinClick={extractPinID}/>
+                    <ZooMapLegend/>
                 </div>
             <Footer/>
             <ScrollTopButton/>

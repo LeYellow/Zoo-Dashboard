@@ -98,7 +98,7 @@ function ZooMap({onPinClick}) {
         const rect = e.target.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
-        setPinData({ X: Math.round(x)-20, Y: Math.round(y)-5 });
+        setPinData({ X: Math.round(x)-20, Y: Math.round(y)-30 });
     
         setOpenMenu(true);
     };
